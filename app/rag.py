@@ -2,7 +2,7 @@ from app.llm import ask_llm
 from app.retrieve import retrieve
 from app.translate import tr_to_en, en_to_tr
 from app.memory import add_to_memory
-from app.config import TOP_K, MINIMUM_SIMILARITY
+from app.config import TOP_K, MINIMUM_SIMILARITY, SYSTEM_PROMPT
 
 
 NOT_FOUND_TR = "Bunun hakkında bir bilgi bulunamadı."
@@ -39,13 +39,8 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
     
     # Context-aware retrieval: if we have history, prepend the last question to the search query
     # to help the vector database find the right product when user says "this product"
-    search_context = ""
-    if chat_history:
-        last_q = chat_history[-1]["user"]
-        search_context = f"{last_q} "
-        
     # Translate Turkish query to English for DB search
-    english_query = tr_to_en(search_context + question_tr)
+    english_query = tr_to_en(question_tr)
     
     # SADECE VERİTABANINDA SEMANTİK OLARAK ARAYACAĞIZ (ASIN FİLTRESİ YOK)
     try:
@@ -71,9 +66,9 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
 
     context = build_context(docs)
     
-    # Kapsam sınırını aşmamak için bağlamı kırp (Yaklaşık 12000 karakter)
-    if len(context) > 12000:
-        context = context[:12000] + "\n... [Bağlam Kırpıldı]"
+    # Kapsam sınırını aşmamak için bağlamı kırp (Yaklaşık 4000 karakter)
+    if len(context) > 4000:
+        context = context[:4000] + "\n... [Bağlam Kırpıldı]"
 
     from app.memory import get_memory_text
     memory_context = get_memory_text()
@@ -93,72 +88,43 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
         system_instruction = f"""You are Amazon's expert Customer Advisor.
 YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on the provided English PRODUCT REVIEWS.
 
-RULES:
-1. Answer ENTIRELY in English. Do not use Turkish.
-2. DO NOT copy-paste raw reviews or lists of reviews. DO NOT mention "Helpfulness" scores.
-3. Your main goal is to summarize the overall consensus based on the reviews.
-4. RECOMMENDATIONS: If the user asks for a recommendation (e.g., "suggest a camera"):
-   - Recommend ONE OR MORE products found in the context.
-   - For EACH recommended product, you MUST use this exact format:
-     
-     ### [Product Name]
-     - **Why I Recommend It**: [Explain why it's recommended based on the reviews]
-     - **Key Features**: [List key features mentioned by customers]
-5. COMPARISONS: If the user asks to compare products, DO NOT output a table. Instead, format it as a clean list. 
-   - For EACH product, use this format EXACTLY, with double blank lines between every section:
-   
-     ### [Product Name]
-     
-     - **Estimated Rating**: [e.g. ⭐⭐⭐⭐½ (4.5/5)]
-     
-     - **Pros**: [List pros]
-     
-     - **Cons**: [List cons]
-     
-     - **Final Recommendation**: [Why you recommend it]
-6. DO NOT sound like a robot. Synthesize the information naturally.
-7. If the provided reviews are completely irrelevant to the user's question, DO NOT make up an answer. Simply say: "Unfortunately, I couldn't find a product in our database that matches these criteria."
-8. STRUCTURE YOUR ANSWER CAREFULLY: If you use Markdown headings, YOU MUST put them on a completely new line. Always separate paragraphs and headings with a blank line.
-9. Start directly with the core answer. Keep a helpful, enthusiastic tone.
-10. If you need to think (<think> tags), keep it VERY SHORT."""
+{SYSTEM_PROMPT}
+
+ADDITIONAL RULES FOR REVIEWS:
+1. Keep your answer brief, natural, and helpful. Write ONLY ONE natural paragraph.
+2. Summarize the overall consensus based on the reviews. DO NOT use headings, bullet points, or structural markers. DO NOT repeat the same information.
+3. At the end of your paragraph, estimate an overall 5-star rating based on the review sentiments (e.g., "Estimated Rating: ⭐⭐⭐⭐⭐ 5/5").
+4. Start directly with the core answer. Do not use introductory phrases."""
         
-        user_prompt = f"""REVIEWS CONTEXT:
+        user_prompt = f"""Context:
 {context}
 
-CUSTOMER QUESTION: {english_query}
+Chat History:
+{memory_context}
 
-IMPORTANT REMINDER: Answer the customer based ONLY on the reviews above. First, evaluate the overall sentiment for the product.
+Customer: {english_query}
 
-If the product has MOSTLY POSITIVE reviews, RECOMMEND IT. Your answer MUST look like this example:
-### Sony Cyber-shot Camera
-- **Estimated Rating**: ⭐⭐⭐⭐½ (4.5/5)
-- **Why I Recommend It**: Customers love the image quality and battery life.
-- **Key Features**: 20MP sensor, compact size.
-
-If the product has MOSTLY NEGATIVE reviews, DO NOT RECOMMEND IT. Your answer MUST look like this example:
-### Bad Brand Speaker
-- **Estimated Rating**: ⭐½☆☆☆ (1.5/5)
-- **Why I DO NOT Recommend It**: Most customers complained that it breaks after one day and has terrible sound.
-- **Major Complaints**: Poor sound, breaks easily.
-
-If the customer asks to COMPARE two or more products, YOU MUST use a Markdown table. Your answer MUST look like this example:
-| Feature | Sony Camera | Bad Brand Camera |
-|---|---|---|
-| **Rating** | ⭐⭐⭐⭐½ | ⭐½☆☆☆ |
-| **Pros** | Great image | Cheaper |
-| **Cons** | Expensive | Breaks easily |
-
-YOUR HELPFUL ANSWER (in English):"""
+Please write exactly one short paragraph summarizing the reviews. End your paragraph with an estimated star rating out of 5 based on the overall sentiment (e.g., Estimated Rating: 4/5 stars). DO NOT use any introductory labels.
+"""
     else:
         system_instruction = f"""You are Amazon's Customer Advisor.
 YOUR TASK: Answer the user's question based ONLY on the provided English DOCUMENT CONTEXT.
 
-RULES:
-1. Answer ENTIRELY in English. Do not use Turkish.
-2. Structure your answer clearly. If the answer involves steps, use numbered lists or bullet points.
-3. Start your answer directly with the information. DO NOT use introductory phrases like "The answer is" or "Based on the context".
-4. If you need to think (<think> tags), keep it VERY SHORT."""
-        user_prompt = f"Context:\n{context}\n\nChat History:\n{memory_context}\n\nCustomer: {english_query}"
+{SYSTEM_PROMPT}
+
+ADDITIONAL RULES FOR FAQ:
+1. Start your response IMMEDIATELY with the direct answer. DO NOT say "Based on the context" or "Here is the information".
+"""
+        user_prompt = f"""Context:
+{context}
+
+Chat History:
+{memory_context}
+
+Customer: {english_query}
+
+Provide a clear and direct answer based on the context. You may use bullet points or steps if helpful, but DO NOT repeat the same information multiple times. Stop generating once the question is fully answered.
+"""
 
     sources = list(dict.fromkeys(doc["source"] for doc in docs))
 
@@ -174,48 +140,73 @@ RULES:
             for chunk in ask_llm(system_instruction, user_prompt):
                 buffer += chunk
                 
-                if not in_think:
-                    if "<think>" in buffer:
-                        parts = buffer.split("<think>")
-                        pre_think = parts[0]
-                        if pre_think:
-                            line_buffer += pre_think
-                            if line_buffer.strip():
-                                tr_text = en_to_tr(line_buffer)
-                                yield tr_text
-                                visible_answer += tr_text
-                                yielded_anything = True
-                            else:
-                                yield line_buffer
-                                visible_answer += line_buffer
-                            line_buffer = ""
-                        in_think = True
-                        buffer = parts[1] if len(parts) > 1 else ""
-                    else:
-                        line_buffer += chunk
-                        buffer = ""
-                        
-                        while "\n" in line_buffer:
-                            parts = line_buffer.split("\n", 1)
-                            line = parts[0]
-                            line_buffer = parts[1]
+                while buffer:
+                    if not in_think:
+                        if "<think>" in buffer:
+                            parts = buffer.split("<think>", 1)
+                            line_buffer += parts[0]
+                            buffer = parts[1]
+                            in_think = True
+                            continue
+                        else:
+                            possible_partial = False
+                            for tag in ["<think>", "</think>"]:
+                                for i in range(1, len(tag)):
+                                    if buffer.endswith(tag[:i]):
+                                        possible_partial = True
+                                        line_buffer += buffer[:-i].replace("</think>", "")
+                                        buffer = buffer[-i:]
+                                        break
+                                if possible_partial:
+                                    break
                             
-                            if line.strip():
-                                tr_text = en_to_tr(line)
-                                yield tr_text + "\n"
-                                visible_answer += tr_text + "\n"
-                                yielded_anything = True
-                            else:
-                                yield "\n"
-                                visible_answer += "\n"
-                else:
-                    if "</think>" in buffer:
-                        parts = buffer.split("</think>")
-                        in_think = False
-                        buffer = parts[1] if len(parts) > 1 else ""
-                        if buffer:
-                            line_buffer += buffer
-                            buffer = ""
+                            if not possible_partial:
+                                line_buffer += buffer.replace("</think>", "")
+                                buffer = ""
+                            
+                            while True:
+                                n_idx = line_buffer.find("\n")
+                                d_idx = line_buffer.find(". ")
+                                
+                                if n_idx == -1 and d_idx == -1:
+                                    break
+                                    
+                                if n_idx != -1 and (d_idx == -1 or n_idx < d_idx):
+                                    split_idx = n_idx
+                                    delimiter = "\n"
+                                else:
+                                    split_idx = d_idx + 1
+                                    delimiter = " "
+                                
+                                line = line_buffer[:split_idx]
+                                line_buffer = line_buffer[split_idx + len(delimiter):]
+                                
+                                if line.strip():
+                                    tr_text = en_to_tr(line)
+                                    yield tr_text + delimiter
+                                    visible_answer += tr_text + delimiter
+                                    yielded_anything = True
+                                else:
+                                    yield delimiter
+                                    visible_answer += delimiter
+                            break
+                    else:
+                        if "</think>" in buffer:
+                            parts = buffer.split("</think>", 1)
+                            buffer = parts[1]
+                            in_think = False
+                            continue
+                        else:
+                            possible_partial = False
+                            for i in range(1, len("</think>")):
+                                if buffer.endswith("</think>"[:i]):
+                                    possible_partial = True
+                                    buffer = buffer[-i:]
+                                    break
+                                    
+                            if not possible_partial:
+                                buffer = ""
+                            break
                         
                 # Loop detection using visible_answer
                 if len(visible_answer) > 100:

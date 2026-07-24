@@ -1,0 +1,362 @@
+2026-07-24 12:17:41,870 - INFO - --- YENİ KAPSAMLI TEST BAŞLADI (20 SORU) ---
+2026-07-24 12:17:41,870 - INFO - Soru [1/20]: Siparişim nerede kaldı, nasıl takip edebilirim? | Beklenti: Geçerli
+2026-07-24 12:18:27,208 - INFO - Durum: BAŞARILI | Süre: 45.34s
+2026-07-24 12:18:27,208 - INFO - Cevap: 
+
+Siparişinizi takip etmek için şu adımları izleyin:
+
+1. **Siparişlerime Git**:
+- "Hesabım" bölümüne gidin. 
+- "Siparişlerim" sayfasını bulun. 
+
+2. **Siparişinizi Bulun**:
+- Gönderinizle ilişkili siparişi arayın. 
+
+3. **Gönderiyi Takip Edin**:
+- Siparişi bulduktan sonra siparişin yanındaki **"Gönderim Takibi"** butonuna tıklayın. 
+
+4. **İzleme Ayrıntılarını Görüntüle**:
+- Teslimat durumunu ve nakliye şirketi tarafından sağlanan ek ayrıntıları gösteren takip bilgileri görüntülenecektir. 
+
+Takip konusunda herhangi bir sorunla karşılaşırsanız içerikte yer alan iletişim bilgilerinden kargo firmasıyla iletişime geçebilirsiniz.
+
+2026-07-24 12:18:27,211 - INFO - Soru [2/20]: Kargo ücretleri ne kadar? | Beklenti: Geçerli
+2026-07-24 12:19:00,203 - INFO - Durum: BAŞARILI | Süre: 32.99s
+2026-07-24 12:19:00,203 - INFO - Cevap: 
+
+Nakliye ücretleri müşteri türüne bağlıdır:
+- **Amazon Prime Üyeleri**: Sepet miktarına bakılmaksızın ücretsiz ve hızlı gönderimden yararlanın. 
+- **Standart Müşteriler**: Kargo ücretini sepet tutarına göre öderler. 
+
+Prime üyeler ücretsiz kargodan yararlanırken, standart müşteriler sepet tutarına göre kargo ücreti ödüyor.
+
+2026-07-24 12:19:00,203 - INFO - Soru [3/20]: Ürünü iade etmek istiyorum, kargo ücreti ödeyecek miyim? | Beklenti: Geçerli
+2026-07-24 12:22:04,197 - INFO - Durum: BAŞARILI | Süre: 183.99s
+2026-07-24 12:22:04,197 - INFO - Cevap: 
+
+Ürünün iade süreci şu şekildedir:
+
+1. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+2. **Geri Ödeme Yöntemi**: Geri ödeme yöntemi isteğinize bağlıdır. Aşağıdakiler arasında seçim yapabilirsiniz:
+- "Orijinal ödeme yönteminize" veya
+- İsteğiniz doğrultusunda "Hediye Kartı Olarak İade".
+
+3. **Kargo Ücreti**: Ürünü, tarafınıza sunulan anlaşmalı kargo şirketi dışında başka bir kargo şirketi ile iade etmeyi tercih etmeniz durumunda, kargo ücreti tarafınızca karşılanacaktır.
+
+4. **İade Süreci**: İade kodu detayına gönderilen bilgilendirme mesajından ulaşabilirsiniz.
+
+5. **İade Politikası**: Ürünü satın aldığınız tarihten itibaren 30 gün içerisinde iade edebilirsiniz.
+
+6. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+7. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+8. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+9. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+10. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+11. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+12. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+13. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+14. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+15. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+16. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+17. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+18. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+19. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+20. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+21. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+22. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+23. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+24. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+25. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+26. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+27. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+28. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+29. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+30. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+31. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+32. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+33. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+34. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+35. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+36. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+37. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+38. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+39. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+40. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+41. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+42. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+43. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+44. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+45. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+46. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+47. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+48. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+49. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+50. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+51. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+52. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+53. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+54. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+55. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+56. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+57. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+58. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+59. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+60. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+61. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+62. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+63.. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+64. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+65. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+66. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+67. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+68. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+69. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+70. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+71. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+72. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+73. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+74. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+75. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+76. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+77. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+78. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+79. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+80. **İade Yöntemi**: Ürünü Online İade Merkezi üzerinden veya İade nedeni menüsünden uygun iade nedenini seçerek iade edebilirsiniz.
+
+81. **İade Kargo Ücreti**: Ürünü anlaşmalı kargo kargo koduyla ücretsiz gönderebilirsiniz.
+
+82. **İade Nedeni**: İade nedeni menüsünde sunulan seçeneklerden seçim yapabilirsiniz.
+
+83.4. **İade Yöntemi**: Ürünü İnternet üzerinden iade edebilirsiniz.
+
+2026-07-24 12:22:04,197 - INFO - Soru [4/20]: İadem onaylandı, param ne zaman yatar? | Beklenti: Geçerli
+2026-07-24 12:22:24,486 - INFO - Durum: BAŞARILI | Süre: 20.29s
+2026-07-24 12:22:24,486 - INFO - Cevap: 
+
+Veritabanımda bu soruyla ilgili herhangi bir bilgi yok.
+
+2026-07-24 12:22:24,486 - INFO - Soru [5/20]: Kredi kartına taksit yapıyor musunuz? | Beklenti: Geçerli
+2026-07-24 12:22:48,210 - INFO - Durum: BAŞARILI | Süre: 23.72s
+2026-07-24 12:22:48,210 - INFO - Cevap: 
+
+Evet, yasal düzenlemeler çerçevesinde elektronik ve gıda dışında birçok kategoride anlaşmalı kredi kartlarına faizsiz taksit seçenekleri sunulmaktadır.
+
+2026-07-24 12:22:48,210 - INFO - Soru [6/20]: Prime üyesi olursam kargo bedava mı olur? | Beklenti: Geçerli
+2026-07-24 12:23:15,365 - INFO - Durum: BAŞARILI | Süre: 27.16s
+2026-07-24 12:23:15,365 - INFO - Cevap: 
+
+Evet, Prime üye olursanız kargo ücretsiz olacaktır. Amazon Prime, sepet tutarına bakılmaksızın uygun ürünlerde ücretsiz ve hızlı gönderim sağlar. Bu, Prime üyelerinin tüm Prime'a uygun ürünlerde ücretsiz gönderimden yararlanabileceği anlamına gelir.
+
+2026-07-24 12:23:15,366 - INFO - Soru [7/20]: Müşteri hizmetlerine nasıl ulaşabilirim? | Beklenti: Geçerli
+2026-07-24 12:23:56,146 - INFO - Durum: BAŞARILI | Süre: 40.78s
+2026-07-24 12:23:56,147 - INFO - Cevap: 
+
+Müşteri hizmetlerine ulaşmak için aşağıdaki yöntemleri kullanabilirsiniz:
+
+1. **İletişim Formu**:
+Destek taleplerinizi iletmek için Amazon.com.tr web sitesindeki İletişim Formunu kullanın.
+
+2. **Çevrimiçi Yardım Merkezi**:
+Sipariş veya hesap sorunlarına ilişkin yönlendirmelere ulaşmak için Amazon.com.tr'deki "Yardım" veya "Müşteri Hizmetleri" bölümlerini ziyaret edin.
+
+3. **Satıcı Forumları**:
+Satıcıysanız diğer satıcılarla etkileşimde bulunmak ve deneyimlerinizi paylaşmak için Amazon Satıcı Forumlarını kullanabilirsiniz.
+
+**Cevap**:
+Müşteri hizmetlerine ulaşmak için Amazon.com.tr internet sitesinde yer alan İletişim Formunu kullanabilirsiniz. Alternatif olarak ihtiyaçlarınıza bağlı olarak Çevrimiçi Yardım Merkezi veya Satıcı Forumları aracılığıyla da iletişime geçebilirsiniz.
+
+2026-07-24 12:23:56,147 - INFO - Soru [8/20]: Hediye kartı ile ödeme yapabilir miyim? | Beklenti: Geçerli
+2026-07-24 12:24:31,708 - INFO - Durum: BAŞARILI | Süre: 35.56s
+2026-07-24 12:24:31,708 - INFO - Cevap: 
+
+Evet, Amazon'daki alışverişlerde ödeme yapmak için hediye kartı kullanabilirsiniz. Hediye kartı bakiyesi, ödeme sırasında nakit yerine kullanılabilir. Ancak sunulan bağlamda hediye kartıyla ödeme yapma olanağından açıkça bahsedilmiyor. Yalnızca bakiyenin hesabınıza nasıl yükleneceği ve satın alımlarda nasıl kullanılacağı açıklanmaktadır.
+
+2026-07-24 12:24:31,708 - INFO - Soru [9/20]: Siparişim hasarlı geldi, ne yapmalıyım? | Beklenti: Geçerli
+2026-07-24 12:24:50,131 - INFO - Durum: BAŞARILI | Süre: 18.42s
+2026-07-24 12:24:50,131 - INFO - Cevap: 
+
+Hasarlı ürünler için 30 gün içerisinde Siparişlerim sayfasından değişim veya iade talebinde bulunabilirsiniz.
+
+2026-07-24 12:24:50,131 - INFO - Soru [10/20]: Yurt dışına kargo gönderiyor musunuz? | Beklenti: Geçerli
+2026-07-24 12:25:12,030 - INFO - Durum: BAŞARILI | Süre: 21.90s
+2026-07-24 12:25:12,030 - INFO - Cevap: 
+
+Evet yurt dışına kargo gönderiyoruz. Kargolar yurt dışı depolarımızdan gönderilmekte olup, teslimatı ilgili kargo firmaları tarafından gerçekleştirilmektedir. Kargo süreci Amazon tarafından yönetilmekte olup, kargolar en güvenilir ve güvenilir kargo firmaları aracılığıyla gönderilmektedir.
+
+2026-07-24 12:25:12,030 - INFO - Soru [11/20]: Sony Cyber-shot fotoğraf makinesi için yorumlar nasıl? | Beklenti: Geçerli
+2026-07-24 12:28:17,826 - INFO - Durum: BAŞARILI | Süre: 185.80s
+2026-07-24 12:28:17,826 - INFO - Cevap: Bunun hakkında bir bilgi bulunamadı.
+
+2026-07-24 12:28:17,826 - INFO - Soru [12/20]: Radio Flyer oyuncak vagonun montajı kolay mı? | Beklenti: Geçerli
+2026-07-24 12:29:16,059 - INFO - Durum: BAŞARILI | Süre: 58.23s
+2026-07-24 12:29:16,060 - INFO - Cevap: 
+
+**Radio Flyer Küçük Oyuncak Vagonu** çoğu kullanıcı için **montajı kolaydır**. Montaj kolaylığı ve temel özelliklerinin bir dökümü aşağıda verilmiştir:
+
+---
+
+### **Montaj Kolaylığı**
+1. **Kullanıcı Dostu Tasarım**: Vagon, anlaşılır talimatlar ve sezgisel mekanizmalarla kolay montaj için tasarlanmıştır.
+
+2. **Minimum Alet Gerekir**: Çoğu kullanıcının vagonu monte etmek için herhangi bir özel alete ihtiyacı olmayacaktır. Montaj işlemi genellikle basittir ve aşırı karmaşık değildir.
+
+---
+
+### **Temel Özellikler**
+1. **Sağlam ve İyi Yapılmış**: Vagon, dayanıklı ve uzun ömürlü olmasını sağlayan yüksek kaliteli malzemelerden üretilmiştir.
+
+2. **Montajı Kolay**: Vagon, montajı kolay bir süreçle tasarlanmıştır ve bu sayede geniş bir kullanıcı yelpazesi için erişilebilir hale gelir.
+
+---
+
+### **Son Öneri**
+**Radio Flyer Küçük Oyuncak Vagonu** **montajı kolaydır** ve **montajı kolay ve yüksek kaliteli malzemelerden yapılmış bir oyuncak vagon arayan kullanıcılar için mükemmel bir seçimdir.**
+
+2026-07-24 12:29:16,060 - INFO - Soru [13/20]: Canon 430EX Flaş dış çekimler için iyi mi? | Beklenti: Geçerli
+2026-07-24 12:32:38,809 - INFO - Durum: BAŞARILI | Süre: 202.75s
+2026-07-24 12:32:38,809 - INFO - Cevap: Bunun hakkında bir bilgi bulunamadı.
+
+2026-07-24 12:32:38,809 - INFO - Soru [14/20]: Polk Audio CS10 hoparlörün ses kalitesi nasıl? | Beklenti: Geçerli
+2026-07-24 12:33:42,346 - INFO - Durum: BAŞARILI | Süre: 63.54s
+2026-07-24 12:33:42,346 - INFO - Cevap: 
+
+Sağlanan incelemelere göre Polk Audio CS10 Merkez Kanal Hoparlörünün ses kalitesi genel olarak **olumlu**. İşte ses kalitesinin bir özeti:
+
+### Önemli Noktalar:
+1. **Ses Kalitesi**: Hoparlör, **net, net ve dengeli sesi** nedeniyle övgüyle karşılanmaktadır. Bazı incelemelerde sesin **muhteşem** olduğundan ve **fiyatına değer** olduğundan bahsediliyor.
+
+2. **Tasarım ve Yapım**: Hoparlörün **güzel bir tasarıma** ve **iyi yapı kalitesine** sahip olduğu tanımlanmaktadır. Bazı incelemelerde hoparlörün **bakımı kolay** ve **temiz** olduğu belirtiliyor.
+
+3. **Kullanıcı Deneyimi**: Konuşmacı, **kullanım kolaylığı** ve **genel değeri** nedeniyle övülüyor. Bazı incelemelerde konuşmacının **fiyatına değer** ve **harika bir yatırım** olduğundan bahsediliyor.
+
+### Son Öneri:
+- **Ses Kalitesi**: Polk Audio CS10 hoparlör **net, canlı ve dengeli ses** sunar. **İnanılmaz performansı** ve **genel değeri** nedeniyle övülmektedir.
+- **Tasarım ve Yapım**: Hoparlörün **güzel bir tasarıma** ve **iyi yapı kalitesine** sahip olduğu tanımlanmaktadır. **bakım kolaylığı** ve **temizliği** nedeniyle övgüyle karşılanmaktadır.
+- **Kullanıcı Deneyimi**: Konuşmacı, **kullanım kolaylığı** ve **genel değeri** nedeniyle övülmektedir. **Harika bir yatırım** ve **değerli bir satın alma** olarak tanımlanıyor.
+
+### Son Cevap:
+Polk Audio CS10 Merkez Kanal Hoparlörünün ses kalitesi genel olarak **pozitif**. Ses **net, net ve dengeli** olarak tanımlanıyor. **İnanılmaz performansı** ve **genel değeri** nedeniyle övülmektedir.
+
+2026-07-24 12:33:42,346 - INFO - Soru [15/20]: Yarın İstanbul'da yağmur yağacak mı? | Beklenti: Geçersiz (Tuzak)
+2026-07-24 12:33:51,507 - INFO - Durum: BAŞARILI (Doğru Reddetme) | Süre: 9.16s
+2026-07-24 12:33:51,507 - INFO - Cevap: Bunun hakkında bir bilgi bulunamadı.
+
+2026-07-24 12:33:51,507 - INFO - Soru [16/20]: Dyson marka süpürge almalı mıyım? | Beklenti: Geçersiz (Tuzak)
+2026-07-24 12:34:56,628 - INFO - Durum: BAŞARISIZ (Uydurdu) | Süre: 65.12s
+2026-07-24 12:34:56,628 - INFO - Cevap: 
+
+**Dyson Elektrikli Süpürge Satın Almalı mısınız?**
+
+**Cevap:**
+Evet, bir Dyson elektrikli süpürge satın almayı düşünmelisiniz. İşte nedeni:
+
+1. **Dyson'un İtibarı:**
+Dyson, elektrikli süpürge sektöründe tanınmış bir markadır. Ürünleri genellikle performansları ve dayanıklılıkları nedeniyle övülür.
+
+2. **İleri Teknoloji:**
+Dyson elektrikli süpürgeler HEPA filtreler, güçlü motorlar ve akıllı bağlantı gibi ileri teknolojilerle donatılmıştır.
+
+3. **Kullanıcı Deneyimi:**
+Dyson elektrikli süpürgeler, sezgisel kontroller, temizlemesi kolay filtreler ve kompakt tasarımıyla kullanım kolaylığı sağlayacak şekilde tasarlanmıştır.
+
+4. **Garanti ve Destek:**
+Dyson, müşterilerin güvenilir hizmet ve destek almasını sağlayan kapsamlı bir garanti ve destek sunmaktadır.
+
+**Son Tavsiye:**
+**Evet, bir Dyson elektrikli süpürge satın almayı düşünmelisiniz.**
+Dyson markası yenilikçi teknolojisi ve kullanıcı odaklı tasarımıyla ünlüdür. Olağanüstü performans, dayanıklılık ve üstün kullanıcı deneyimi sunduğu için Dyson elektrikli süpürgeye yatırım yapmak akıllıca bir karardır.
+
+2026-07-24 12:34:56,628 - INFO - Soru [17/20]: Elon Musk'ın serveti ne kadar? | Beklenti: Geçersiz (Tuzak)
+2026-07-24 12:35:05,244 - INFO - Durum: BAŞARILI (Doğru Reddetme) | Süre: 8.62s
+2026-07-24 12:35:05,244 - INFO - Cevap: Bunun hakkında bir bilgi bulunamadı.
+
+2026-07-24 12:35:05,244 - INFO - Soru [18/20]: PlayStation 5 stoklara ne zaman girecek? | Beklenti: Geçersiz (Tuzak)
+2026-07-24 12:35:30,927 - INFO - Durum: BAŞARILI (Doğru Reddetme) | Süre: 25.68s
+2026-07-24 12:35:30,928 - INFO - Cevap: 
+
+Veritabanımda bu soruyla ilgili herhangi bir bilgi yok.
+
+2026-07-24 12:35:30,928 - INFO - Soru [19/20]: Bana en iyi korku filmlerini önerir misin? | Beklenti: Geçersiz (Tuzak)
+2026-07-24 12:35:40,031 - INFO - Durum: BAŞARILI (Doğru Reddetme) | Süre: 9.10s
+2026-07-24 12:35:40,031 - INFO - Cevap: Bunun hakkında bir bilgi bulunamadı.
+
+2026-07-24 12:35:40,031 - INFO - Soru [20/20]: iPhone 15 Pro Max kamerası nasıl yorumlanmış? | Beklenti: Geçersiz (Tuzak)
+2026-07-24 13:50:21,205 - INFO - Durum: BAŞARILI (Doğru Reddetme) | Süre: 4481.17s
+2026-07-24 13:50:21,206 - INFO - Cevap: Bunun hakkında bir bilgi bulunamadı.
+
+2026-07-24 13:50:21,206 - INFO - --- TEST BİTTİ ---

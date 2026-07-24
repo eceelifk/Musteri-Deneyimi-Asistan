@@ -19784,7 +19784,7 @@ Customer Reviews:
 
 Product Code (ASIN): 0670012335
 Product Name: Llama Llama Time to Share
-Product Image: http://ecx.images- Okunaklı hale getir 13.07.2026 10:36 helpful-sentences-from-reviews.s3.amazonaws.com/train.json https://helpful-sentences-from-reviews.s3.amazonaws.com/train.json 10/1033 amazon.com/images/I/A1ks6FGtr0L.jpg
+Product Image: http://ecx.images-helpful-sentences-from-reviews.s3.amazonaws.com/train.json https://helpful-sentences-from-reviews.s3.amazonaws.com/train.json 10/1033 amazon.com/images/I/A1ks6FGtr0L.jpg
 Customer Reviews:
 - My grand daughters love the  llamas. (Helpfulness: 0.8)
 - My 3 year old loves all the Llama Llama  books. (Helpfulness: 1.2)

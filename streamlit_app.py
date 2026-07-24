@@ -134,6 +134,14 @@ footer {visibility: hidden;}
     box-shadow: 0 10px 30px rgba(0,0,0,0.06) !important;
     padding: 5px;
 }
+[data-testid="stChatInput"] > div {
+    background-color: transparent !important;
+    border: none !important;
+}
+[data-testid="stChatInput"] textarea {
+    background-color: transparent !important;
+    color: #334155 !important;
+}
 [data-testid="stChatInput"]:focus-within {
     border-color: #FF9900 !important;
     box-shadow: 0 10px 30px rgba(255, 153, 0, 0.15) !important;
@@ -251,7 +259,7 @@ if len(st.session_state.messages) == 0:
     else:
         examples = [
             "Canon 430EX Flaş ürününü alanlar en çok hangi özelliğini beğenmiş? Özetler misin?",
-            "Bana iyi ve fiyat performans açısından mantıklı bir kamera önerebilir misin? (Örn: Sony Cyber-shot)",
+            "Bana iyi ve fiyat performans açısından mantıklı bir kamera önerebilir misin?",
             "Philips SoundShooter hoparlörün ses kalitesi iyi mi, alınır mı?",
             "Radio Flyer Little Toy Wagon çocuklar için uygun mu, yorumlar nasıl?"
         ]
@@ -259,7 +267,7 @@ if len(st.session_state.messages) == 0:
     cols = st.columns(2)
     for i, ex in enumerate(examples):
         with cols[i % 2]:
-            if st.button(f"💬 {ex}", use_container_width=True):
+            if st.button(f" {ex}", use_container_width=True):
                 st.session_state.example_prompt = ex
                 st.rerun()
 
@@ -306,23 +314,21 @@ if prompt:
                 
                 # Spinner kaybolduktan sonra kalan akışı yazdır
                 def generate_stream():
+                    accumulated = ""
                     if first_chunk:
+                        accumulated += first_chunk
                         yield first_chunk
-                    yield from stream
-                
+                    
+                    for chunk in stream:
+                        accumulated += chunk
+                        yield chunk
+                    
+                    pass
                 full_answer = st.write_stream(generate_stream())
-                
-                # Dinamik Alt Bilgi Ekleme
-                asins = result.get("asins", [])
-                asins = list(dict.fromkeys(asins)) # Remove duplicates
-                if asins:
-                    st.markdown("---")
-                    full_answer += f"\n\n---\n"
-                    cols = st.columns(len(asins))
-                    for i, asin in enumerate(asins):
-                        with cols[i]:
-                            st.link_button(f"👉 Ürünü Amazon'da İncele", f"https://www.amazon.com.tr/dp/{asin}", use_container_width=True)
-                        full_answer += f"[👉 Ürünü Amazon'da İncele](https://www.amazon.com.tr/dp/{asin})\n"
+                if full_answer is None:
+                    full_answer = ""
+                elif not isinstance(full_answer, str):
+                    full_answer = str(full_answer)
                 
                 # Hafızaya ekleme işlemini akış bittikten sonra yap
                 from app.memory import add_to_memory

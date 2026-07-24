@@ -6,7 +6,8 @@ def tr_to_en(text):
         return ""
     
     try:
-        return GoogleTranslator(source='tr', target='en').translate(text)
+        translated = GoogleTranslator(source='tr', target='en').translate(text)
+        return translated if translated is not None else text
     except Exception as e:
         print(f"Translation error: {e}")
         # Hata olursa orijinal metni döndür (RAG şansını dener)
@@ -15,10 +16,11 @@ def tr_to_en(text):
 def en_to_tr(text):
     """Yapay zekanın ürettiği İngilizce cevabı Türkçe olarak çevirir."""
     if not text or not text.strip():
-        return text
+        return text or ""
         
     try:
-        return GoogleTranslator(source='en', target='tr').translate(text)
+        translated = GoogleTranslator(source='en', target='tr').translate(text)
+        return translated if translated is not None else text
     except Exception as e:
         print(f"Translation error (en_to_tr): {e}")
         return text

@@ -91,14 +91,13 @@ YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on t
 {SYSTEM_PROMPT}
 
 ADDITIONAL RULES FOR REVIEWS:
-1. CRITICAL: First check if the retrieved context actually talks about the specific product or topic the user is asking about. If it does NOT, you MUST say exactly: "I do not have any information regarding this product in my database." and NOTHING else. Do not give a star rating.
-2. If the user is asking to compare multiple products, you MUST separate them clearly. Do not mix their features up. Only describe a product using its own specific context.
-3. Keep your explanation concise, direct, and factual based ONLY on the provided context. DO NOT hallucinate extra features to make the answer longer.
-4. CRITICAL: NEVER repeat the same feature, point, or sentence twice. Once you have listed the features, STOP writing.
-5. Feel free to use bold text, bullet points, numbers, and markdown formatting to make the answer easy to read.
-6. CRITICAL: DO NOT use the word "reviews". Instead, say "Customers mentioned" or "People said".
-7. At the end, estimate a star rating like this: "Estimated Rating: 4/5 stars" (if comparing, give one for each product).
-8. Start directly with the core answer. Do not use introductory phrases."""
+1. IF the retrieved context does not talk about the specific product, YOU MUST output exactly: "I do not have any information regarding this product in my database." and nothing else.
+2. ELSE (if the context is relevant), summarize the key points concisely. DO NOT repeat yourself. DO NOT make up features.
+3. IF the user is asking to compare multiple products, separate them clearly.
+4. Stop generating as soon as you have listed the core features. Maximum 5 bullet points!
+5. DO NOT use the word "reviews". Instead say "Customers mentioned".
+6. At the end, estimate a star rating like this: "Estimated Rating: 4/5 stars".
+"""
         
         user_prompt = f"""Context:
 {context}
@@ -108,7 +107,7 @@ Chat History:
 
 Customer: {english_query}
 
-Please write exactly one short paragraph summarizing the reviews. End your paragraph with an estimated star rating out of 5 based on the overall sentiment (e.g., Estimated Rating: 4/5 stars). DO NOT use any introductory labels.
+Provide a clear and concise summary of the product features from the context. DO NOT loop or repeat. End with an estimated star rating out of 5.
 """
     else:
         system_instruction = f"""You are Amazon's Customer Advisor.
@@ -117,11 +116,10 @@ YOUR TASK: Answer the user's question based ONLY on the provided English DOCUMEN
 {SYSTEM_PROMPT}
 
 ADDITIONAL RULES FOR FAQ:
-1. CRITICAL: If the provided context does not explicitly contain the answer to the user's question, you MUST say exactly: "I do not have any information regarding this question in my database." and NOTHING else.
-2. If it is relevant, write naturally and provide helpful information. Be concise and DO NOT repeat yourself.
-3. If giving instructions, write them out as a clear, step-by-step list using numbers or bullet points. Use bold text for key terms.
-4. Make the formatting visually appealing and extremely easy to read using markdown. Once you have answered the question, STOP writing.
-5. Start your response IMMEDIATELY with the direct answer. DO NOT say "Based on the context" or "Here is the information".
+1. IF the provided context does not explicitly contain the answer, YOU MUST output exactly: "I do not have any information regarding this question in my database." and nothing else.
+2. ELSE (if it is relevant), provide helpful and concise information.
+3. DO NOT repeat yourself. Keep it short.
+4. Make the formatting easy to read.
 """
         user_prompt = f"""Context:
 {context}
@@ -131,7 +129,7 @@ Chat History:
 
 Customer: {english_query}
 
-Provide a clear and direct answer based on the context. Write a single, plain paragraph. DO NOT use lists, numbers, or bullet points. Stop generating once the question is fully answered.
+Provide a short, clear answer. DO NOT loop or repeat sentences. Stop when finished.
 """
 
     sources = list(dict.fromkeys(doc["source"] for doc in docs))
@@ -215,19 +213,9 @@ Provide a clear and direct answer based on the context. Write a single, plain pa
                                 buffer = ""
                             break
                         
-                # Loop detection using visible_answer
-                if len(visible_answer) > 100:
-                    import re
-                    clean_text = re.sub(r'[^a-zA-ZğüşıöçĞÜŞİÖÇ\s]', '', visible_answer.lower())
-                    words = clean_text.split()
-                    for i in range(4, 100):
-                        if loop_detected: break
-                        for j in range(max(0, len(words) - i * 3), len(words) - i * 3 + 1):
-                            if words[j:j+i] == words[j+i:j+2*i] == words[j+2*i:j+3*i]:
-                                loop_detected = True
-                                break
-                if loop_detected:
-                    yield "\n\n... (Aynı cümlelerin tekrar ettiği algılandığı için otomatik olarak kesildi. Başka bir sorunuz varsa lütfen sorun.)"
+                # Loop detection using visible_answer length
+                if len(visible_answer) > 1500:
+                    yield "\n\n... (Cevap çok uzadığı veya tekrar döngüsüne girdiği için otomatik olarak kesildi.)"
                     yielded_anything = True
                     break
 
@@ -240,8 +228,21 @@ Provide a clear and direct answer based on the context. Write a single, plain pa
             if not yielded_anything:
                 yield NOT_FOUND_TR
 
+        # Log the output as well
+        def logging_wrapper(generator):
+            full_response = ""
+            for chunk in generator:
+                full_response += chunk
+                yield chunk
+            
+            with open("chat_log.txt", "a", encoding="utf-8") as f:
+                f.write(f"--- YENİ SORU ---\n")
+                f.write(f"SORU (TR): {question_tr}\n")
+                f.write(f"BULUNAN CONTEXT UZUNLUĞU: {len(context)}\n")
+                f.write(f"CEVAP: {full_response}\n\n")
+
         return {
-            "answer_stream": translate_stream_en_to_tr(realtime_stream()),
+            "answer_stream": logging_wrapper(translate_stream_en_to_tr(realtime_stream())),
             "sources": sources,
             "asins": detected_asins if filter_type == "review" else []
         }

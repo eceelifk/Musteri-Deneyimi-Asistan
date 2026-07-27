@@ -3,12 +3,14 @@ import argostranslate.package
 import argostranslate.translate
 import re
 
+_tr_en_translator = GoogleTranslator(source='tr', target='en')
+_en_tr_translator = GoogleTranslator(source='en', target='tr')
+
 def tr_to_en(text):
     if not text or not text.strip():
         return text
     try:
-        translator = GoogleTranslator(source='tr', target='en')
-        return translator.translate(text)
+        return _tr_en_translator.translate(text)
     except Exception as e:
         print(f"İnternet yok, offline çeviriye geçiliyor (TR->EN): {e}")
         try:
@@ -23,8 +25,7 @@ def en_to_tr(text):
     if not text or not text.strip():
         return text
     try:
-        translator = GoogleTranslator(source='en', target='tr')
-        return translator.translate(text)
+        return _en_tr_translator.translate(text)
     except Exception as e:
         print(f"İnternet yok, offline çeviriye geçiliyor (EN->TR): {e}")
         try:
@@ -41,7 +42,7 @@ def translate_stream_en_to_tr(generator):
     translates the complete sentence to Turkish using local MarianMT, and yields it.
     """
     buffer = ""
-    min_buffer_size = 15
+    min_buffer_size = 120
     is_first_chunk = True
     
     for chunk in generator:

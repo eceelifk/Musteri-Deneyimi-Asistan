@@ -118,8 +118,9 @@ YOUR TASK: Answer the user's question based ONLY on the provided English DOCUMEN
 ADDITIONAL RULES FOR FAQ:
 1. CRITICAL: If the provided context does not explicitly contain the answer to the user's question, you MUST say exactly: "I do not have any information regarding this question in my database." and NOTHING else.
 2. If it is relevant, write naturally and provide detailed, helpful information.
-3. Write ONLY ONE plain paragraph. NEVER use bold text, bullet points, numbers, or markdown lists.
-4. Start your response IMMEDIATELY with the direct answer. DO NOT say "Based on the context" or "Here is the information".
+3. If giving instructions, use step-by-step sentences with transition words (e.g., "First...", "Next...", "Finally...").
+4. NEVER use bold text, bullet points, numbers, or markdown lists.
+5. Start your response IMMEDIATELY with the direct answer. DO NOT say "Based on the context" or "Here is the information".
 """
         user_prompt = f"""Context:
 {context}

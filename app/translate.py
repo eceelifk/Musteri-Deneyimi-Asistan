@@ -1,4 +1,6 @@
 from deep_translator import GoogleTranslator
+import argostranslate.package
+import argostranslate.translate
 import re
 
 def tr_to_en(text):
@@ -8,8 +10,11 @@ def tr_to_en(text):
         translator = GoogleTranslator(source='tr', target='en')
         return translator.translate(text)
     except Exception as e:
-        print(f"Çeviri hatası (TR->EN): {e}")
-        return text
+        print(f"İnternet yok, offline çeviriye geçiliyor (TR->EN): {e}")
+        try:
+            return argostranslate.translate.translate(text, 'tr', 'en')
+        except Exception as ex:
+            return text
 
 def translate_tr_to_en(text):
     return tr_to_en(text)
@@ -21,8 +26,11 @@ def en_to_tr(text):
         translator = GoogleTranslator(source='en', target='tr')
         return translator.translate(text)
     except Exception as e:
-        print(f"Çeviri hatası (EN->TR): {e}")
-        return text
+        print(f"İnternet yok, offline çeviriye geçiliyor (EN->TR): {e}")
+        try:
+            return argostranslate.translate.translate(text, 'en', 'tr')
+        except Exception as ex:
+            return text
 
 def translate_en_to_tr(text):
     return en_to_tr(text)

@@ -91,7 +91,7 @@ YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on t
 {SYSTEM_PROMPT}
 
 ADDITIONAL RULES FOR REVIEWS:
-1. Write in extremely simple, basic English. Use short sentences.
+1. Write naturally and provide detailed information.
 2. Summarize the overall consensus based on the reviews. Write ONLY ONE plain paragraph.
 3. NEVER use bold text, bullet points, numbers, or markdown lists.
 4. At the end of your paragraph, estimate an overall 5-star rating based on the review sentiments (e.g., "Estimated Rating: 4/5 stars").
@@ -114,7 +114,7 @@ YOUR TASK: Answer the user's question based ONLY on the provided English DOCUMEN
 {SYSTEM_PROMPT}
 
 ADDITIONAL RULES FOR FAQ:
-1. Write in extremely simple, basic English. Use short sentences.
+1. Write naturally and provide detailed, helpful information.
 2. Write ONLY ONE plain paragraph. NEVER use bold text, bullet points, numbers, or markdown lists.
 3. Start your response IMMEDIATELY with the direct answer. DO NOT say "Based on the context" or "Here is the information".
 """

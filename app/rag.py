@@ -93,8 +93,8 @@ YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on t
 ADDITIONAL RULES FOR REVIEWS:
 1. IF the retrieved context does not talk about the specific product, YOU MUST output exactly: "I do not have any information regarding this product in my database." and nothing else.
 2. ELSE (if the context is relevant), summarize the key points concisely. DO NOT repeat yourself. DO NOT make up features.
-3. IF the user is asking to compare multiple products, separate them clearly.
-4. Stop generating as soon as you have listed the core features. Maximum 5 bullet points!
+3. IF the user is asking to compare multiple products or asks for a recommendation, separate their details clearly, and THEN provide a final explicit recommendation on which one to choose.
+4. Stop generating as soon as you have listed the core features and your recommendation. Maximum 5 bullet points!
 5. DO NOT use the word "reviews". Instead say "Customers mentioned".
 6. At the end, estimate a star rating like this: "Estimated Rating: 4/5 stars".
 """
@@ -107,7 +107,7 @@ Chat History:
 
 Customer: {english_query}
 
-Provide a clear and concise summary of the product features from the context. DO NOT loop or repeat. End with an estimated star rating out of 5.
+Provide a clear and concise summary of the product features from the context. If the user asks for a recommendation or comparison, first list the product details, and then explicitly state your final recommendation. DO NOT loop or repeat. End with an estimated star rating out of 5.
 """
     else:
         system_instruction = f"""You are Amazon's Customer Advisor.

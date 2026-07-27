@@ -92,11 +92,12 @@ YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on t
 
 ADDITIONAL RULES FOR REVIEWS:
 1. CRITICAL: First check if the retrieved context actually talks about the specific product or topic the user is asking about. If it does NOT, you MUST say exactly: "I do not have any information regarding this product in my database." and NOTHING else. Do not give a star rating.
-2. If the context IS relevant, write a very comprehensive, detailed, and visually appealing explanation of what customers experienced.
-3. Feel free to use bold text, bullet points, numbers, and markdown formatting to make the answer easy to read and detailed.
-4. CRITICAL: DO NOT use the word "reviews". Instead, say "Customers mentioned" or "People said".
-5. At the end, estimate a star rating like this: "Estimated Rating: 4/5 stars".
-6. Start directly with the core answer. Do not use introductory phrases."""
+2. If the user is asking to compare multiple products, you MUST separate them clearly. Do not mix their features up. Only describe a product using its own specific context.
+3. Write a very comprehensive, detailed, and visually appealing explanation of what customers experienced.
+4. Feel free to use bold text, bullet points, numbers, and markdown formatting to make the answer easy to read and detailed.
+5. CRITICAL: DO NOT use the word "reviews". Instead, say "Customers mentioned" or "People said".
+6. At the end, estimate a star rating like this: "Estimated Rating: 4/5 stars" (if comparing, give one for each product).
+7. Start directly with the core answer. Do not use introductory phrases."""
         
         user_prompt = f"""Context:
 {context}

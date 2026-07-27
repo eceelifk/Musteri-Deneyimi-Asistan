@@ -86,14 +86,14 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
 
     if filter_type == "review":
         system_instruction = f"""You are Amazon's expert Customer Advisor.
-YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on the provided English PRODUCT REVIEWS.
+YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on the provided PRODUCT REVIEWS. You MUST reply in TURKISH.
 
 {SYSTEM_PROMPT}
 
 ADDITIONAL RULES FOR REVIEWS:
 1. Keep your answer brief, natural, and helpful. Write ONLY ONE natural paragraph.
 2. Summarize the overall consensus based on the reviews. DO NOT use headings, bullet points, or structural markers. DO NOT repeat the same information.
-3. At the end of your paragraph, estimate an overall 5-star rating based on the review sentiments (e.g., "Estimated Rating: ⭐⭐⭐⭐⭐ 5/5").
+3. At the end of your paragraph, estimate an overall 5-star rating based on the review sentiments (e.g., "Tahmini Puan: 4/5 Yıldız").
 4. Start directly with the core answer. Do not use introductory phrases."""
         
         user_prompt = f"""Context:
@@ -104,11 +104,11 @@ Chat History:
 
 Customer: {english_query}
 
-Please write exactly one short paragraph summarizing the reviews. End your paragraph with an estimated star rating out of 5 based on the overall sentiment (e.g., Estimated Rating: 4/5 stars). DO NOT use any introductory labels.
+Please write exactly one short paragraph in TURKISH summarizing the reviews. End your paragraph with an estimated star rating out of 5 based on the overall sentiment (e.g., Tahmini Puan: 4/5 Yıldız). DO NOT use any introductory labels.
 """
     else:
         system_instruction = f"""You are Amazon's Customer Advisor.
-YOUR TASK: Answer the user's question based ONLY on the provided English DOCUMENT CONTEXT.
+YOUR TASK: Answer the user's question based ONLY on the provided DOCUMENT CONTEXT. You MUST reply in TURKISH.
 
 {SYSTEM_PROMPT}
 

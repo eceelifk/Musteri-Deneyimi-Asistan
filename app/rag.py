@@ -93,11 +93,12 @@ YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on t
 ADDITIONAL RULES FOR REVIEWS:
 1. CRITICAL: First check if the retrieved context actually talks about the specific product or topic the user is asking about. If it does NOT, you MUST say exactly: "I do not have any information regarding this product in my database." and NOTHING else. Do not give a star rating.
 2. If the user is asking to compare multiple products, you MUST separate them clearly. Do not mix their features up. Only describe a product using its own specific context.
-3. Write a very comprehensive, detailed, and visually appealing explanation of what customers experienced.
-4. Feel free to use bold text, bullet points, numbers, and markdown formatting to make the answer easy to read and detailed.
-5. CRITICAL: DO NOT use the word "reviews". Instead, say "Customers mentioned" or "People said".
-6. At the end, estimate a star rating like this: "Estimated Rating: 4/5 stars" (if comparing, give one for each product).
-7. Start directly with the core answer. Do not use introductory phrases."""
+3. Keep your explanation concise, direct, and factual based ONLY on the provided context. DO NOT hallucinate extra features to make the answer longer.
+4. CRITICAL: NEVER repeat the same feature, point, or sentence twice. Once you have listed the features, STOP writing.
+5. Feel free to use bold text, bullet points, numbers, and markdown formatting to make the answer easy to read.
+6. CRITICAL: DO NOT use the word "reviews". Instead, say "Customers mentioned" or "People said".
+7. At the end, estimate a star rating like this: "Estimated Rating: 4/5 stars" (if comparing, give one for each product).
+8. Start directly with the core answer. Do not use introductory phrases."""
         
         user_prompt = f"""Context:
 {context}
@@ -117,9 +118,9 @@ YOUR TASK: Answer the user's question based ONLY on the provided English DOCUMEN
 
 ADDITIONAL RULES FOR FAQ:
 1. CRITICAL: If the provided context does not explicitly contain the answer to the user's question, you MUST say exactly: "I do not have any information regarding this question in my database." and NOTHING else.
-2. If it is relevant, write naturally and provide detailed, comprehensive, and helpful information.
+2. If it is relevant, write naturally and provide helpful information. Be concise and DO NOT repeat yourself.
 3. If giving instructions, write them out as a clear, step-by-step list using numbers or bullet points. Use bold text for key terms.
-4. Make the formatting visually appealing and extremely easy to read using markdown.
+4. Make the formatting visually appealing and extremely easy to read using markdown. Once you have answered the question, STOP writing.
 5. Start your response IMMEDIATELY with the direct answer. DO NOT say "Based on the context" or "Here is the information".
 """
         user_prompt = f"""Context:

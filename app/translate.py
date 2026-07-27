@@ -1,53 +1,30 @@
-from transformers import MarianMTModel, MarianTokenizer
+import argostranslate.package
+import argostranslate.translate
 import re
 
-# Global variables for lazy loading the models (so they only load once)
-_en_tr_model = None
-_en_tr_tokenizer = None
-_tr_en_model = None
-_tr_en_tokenizer = None
-
-def _get_en_tr():
-    global _en_tr_model, _en_tr_tokenizer
-    if _en_tr_model is None:
-        print("Loading EN->TR offline model...")
-        model_name = "Helsinki-NLP/opus-mt-tc-big-en-tr"
-        _en_tr_tokenizer = MarianTokenizer.from_pretrained(model_name)
-        _en_tr_model = MarianMTModel.from_pretrained(model_name)
-    return _en_tr_model, _en_tr_tokenizer
-
-def _get_tr_en():
-    global _tr_en_model, _tr_en_tokenizer
-    if _tr_en_model is None:
-        print("Loading TR->EN offline model...")
-        model_name = "Helsinki-NLP/opus-mt-tr-en"
-        _tr_en_tokenizer = MarianTokenizer.from_pretrained(model_name)
-        _tr_en_model = MarianMTModel.from_pretrained(model_name)
-    return _tr_en_model, _tr_en_tokenizer
-
-def translate_tr_to_en(text):
+def tr_to_en(text):
     if not text or not text.strip():
         return text
     try:
-        model, tokenizer = _get_tr_en()
-        encoded = tokenizer(text, return_tensors="pt", padding=True)
-        translated = model.generate(**encoded)
-        return tokenizer.decode(translated[0], skip_special_tokens=True)
+        return argostranslate.translate.translate(text, 'tr', 'en')
     except Exception as e:
-        print(f"Offline Çeviri hatası (TR->EN): {e}")
+        print(f"Çeviri hatası (TR->EN): {e}")
+        return text
+
+def translate_tr_to_en(text):
+    return tr_to_en(text)
+
+def en_to_tr(text):
+    if not text or not text.strip():
+        return text
+    try:
+        return argostranslate.translate.translate(text, 'en', 'tr')
+    except Exception as e:
+        print(f"Çeviri hatası (EN->TR): {e}")
         return text
 
 def translate_en_to_tr(text):
-    if not text or not text.strip():
-        return text
-    try:
-        model, tokenizer = _get_en_tr()
-        encoded = tokenizer(text, return_tensors="pt", padding=True)
-        translated = model.generate(**encoded)
-        return tokenizer.decode(translated[0], skip_special_tokens=True)
-    except Exception as e:
-        print(f"Offline Çeviri hatası (EN->TR): {e}")
-        return text
+    return en_to_tr(text)
 
 def translate_stream_en_to_tr(generator):
     """

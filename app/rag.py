@@ -213,7 +213,7 @@ Provide a clear and direct answer based on the context. You may use bullet point
                     import re
                     clean_text = re.sub(r'[^a-zA-ZğüşıöçĞÜŞİÖÇ\s]', '', visible_answer.lower())
                     words = clean_text.split()
-                    for i in range(4, 20):
+                    for i in range(4, 100):
                         if loop_detected: break
                         for j in range(max(0, len(words) - i * 3), len(words) - i * 3 + 1):
                             if words[j:j+i] == words[j+i:j+2*i] == words[j+2*i:j+3*i]:

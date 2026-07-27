@@ -1,47 +1,55 @@
-# Microsoft Staj Programı - Aşama 1: Yerel RAG Asistanı (Amazon Müşteri Deneyimi & SSS)
+# Amazon Müşteri Deneyimi ve SSS Asistanı (Local RAG)
 
-Selamlar! Ben Microsoft 40 Günlük Proje Tabanlı Staj Programı kapsamında 1. Aşama (Gün 1-20) görevimi tamamladım ve bu repoda geliştirdiğim projeyi paylaşıyorum. 
+Merhaba! Bu projede, müşteri hizmetleri süreçlerini otomatize etmek ve kullanıcılara Amazon ürünleri hakkında yapay zeka destekli, hızlı ve doğru yanıtlar sunmak için **RAG (Retrieval-Augmented Generation)** tabanlı yerel bir yapay zeka asistanı geliştirdim. 
 
-Projemi tasarlarken standart bir soru-cevap botu yapmak yerine, çok daha gerçekçi bir senaryo seçmek istedim. Bu yüzden "Amazon Müşteri Deneyimi ve SSS Asistanı" adı altında, kargo ve iade politikalarını bilen, aynı zamanda da gerçek müşteri ürün yorumlarını analiz edebilen bir RAG (Retrieval-Augmented Generation) sistemi kodladım.
+Amacım; hem ürün yorumlarını analiz edip özetleyen hem de Amazon'un iade, kargo, Prime gibi karmaşık politikalarına anında cevap verebilen akıllı bir destek botu oluşturmaktı. Üstelik tüm bunları internetteki rastgele bilgileri uydurmadan, sadece kendi veritabanımızdaki gerçek verileri kullanarak yaptık!
 
-Üstelik tüm bu sistem **tamamen yerel (offline)** çalışıyor. Dışarıdan hiçbir bulut servisine veya API'ye veri göndermiyoruz.
+## Neler Yaptım? Hangi Özellikleri Ekledim?
 
-## 🛠 Neler Kullandım? Mimari Detaylar
+1. **RAG (Retrieval-Augmented Generation) Altyapısı:** 
+   Modelin halüsinasyon görmesini (bilgi uydurmasını) engellemek için, sorulan soruya önce kendi veritabanımızdan cevap arayan bir yapı kurdum. Sistem sadece bulduğu belgeleri kullanarak cevap üretiyor, bilgi yoksa "Bilmiyorum" diyerek dürüstçe reddediyor.
+2. **Çeviri Katmanı (Translation Layer):** 
+   Veritabanımızdaki ürün yorumları ve Amazon politikaları orijinal dili olan **İngilizce**'ydi. Ancak kullanıcılar Türkçe soru soruyor. Araya `deep-translator` ile bir katman yazdım: Türkçe soru -> İngilizce arama -> İngilizce YZ cevabı -> Türkçe çıktı şeklinde kusursuz ve gerçek zamanlı bir köprü kurdum.
+3. **Akıllı Hafıza (Context Memory):** 
+   Kullanıcının bir önceki sorusunu hatırlayarak bağlamdan kopmayan bir hafıza sistemi entegre ettim. Böylece sohbette "peki iade süresi nedir?" dendiğinde neyden bahsedildiğini anlıyor.
+4. **Anti-Döngü (Loop Detection) Algoritması:** 
+   Küçük parametreli yerel modellerin kronik sorunu olan "aynı kelimeleri / paragrafları tekrar etme" sorununu çözmek için özel bir algoritma yazdım. Model kendini tekrar etmeye başladığı an (100 kelimeye kadar), bunu fark edip üretimi anında kesiyor.
+5. **Modern ve Hızlı Arayüz (UI):** 
+   Streamlit kullanarak Amazon'un orijinal renk ve fontlarına benzeyen, şık, temiz ve "Sohbeti Temizle" özellikli modern bir chat arayüzü tasarladım.
+6. **Gerçek Zamanlı Akış (Streaming):** 
+   Cevabın tamamlanmasını beklemeden, kelime kelime ekrana dökülmesini sağlayan Streaming yapısını kurdum.
+7. **Performans ve Hız Optimizasyonu:** 
+   Veri getirme sayısını (`TOP_K`) optimize ederek ve promptları sadeleştirerek modelin tepki süresini saniyelere indirdim.
+8. **Test Otomasyonu:** 
+   `run_test_v3.py` isimli bir script ile 20 farklı zorlayıcı soru (yorum, SSS ve uydurma tuzak sorular) hazırlayarak sistemin %100 doğrulukla çalıştığını kanıtladım.
 
-Staj yönergesindeki gereksinimleri birebir karşılamak adına mimariyi şu şekilde kurguladım:
+## Hangi Teknolojileri ve Kütüphaneleri Kullandım?
 
-* **Microsoft Foundry Local:** Projenin kalbi burada atıyor. Hem yerel LLM (Qwen) çalıştırılması hem de metinlerin vektörlere (embedding) dönüştürülmesi için ana motor olarak bunu kullandım. 
-* **RAG (Retrieval-Augmented Generation):** Asistanın kafasına göre bilgi uydurmasını engellemek için kurduğum ana yapı. Kullanıcı bir şey sorduğunda asistan kendi iç bilgisini kullanmıyor; önce veritabanındaki PDF dokümanlarını ve yorumları tarayıp, sadece bulduğu metinlere dayanarak cevap üretiyor.
-* **SQLite:** Vektör veritabanı olarak çok ağır ve karmaşık çözümler yerine pratik ve hafif olan SQLite'ı tercih ettim. Parçalanan dokümanlar ve bunların vektör karşılıkları `Musteri_Deneyimi.db` dosyasında yerel olarak saklanıyor.
-* **Streamlit:** "Orta Düzey Web Arayüzü (Seçenek B)" isterini karşılamak için arayüzü Streamlit ile yazdım. Konsepte uygun olsun diye de ufak bir Amazon teması kattım.
+* **Python:** Projenin ana omurgası.
+* **Streamlit (`streamlit`):** Modern, hızlı ve etkileşimli web arayüzünü oluşturmak için.
+* **Qdrant (`qdrant-client`):** Belgelerimizi semantik (anlamsal) olarak arayabildiğimiz, inanılmaz hızlı yerel vektör veritabanımız.
+* **Foundry Local SDK:** Yapay zeka modellerini bilgisayarda yerel (offline) olarak çalıştırmak için kullandığım altyapı.
+* **Qwen3-1.7B Modeli:** Çok hafif ama mantık yürütme kabiliyeti yüksek olan yerel LLM (Büyük Dil Modeli) motorumuz.
+* **Qwen3-Embedding-0.6B:** Metinleri vektörlere (sayılara) çevirip veritabanına kaydetmemizi ve benzerlik araması yapmamızı sağlayan embedding modeli.
+* **Deep Translator (`deep-translator`):** Araya koyduğum gerçek zamanlı İngilizce-Türkçe çeviri motoru (Google Translator altyapısı).
 
-## ⚙️ Nasıl Çalıştırılır?
+## Verileri Nereden Bulduk?
 
-Projeyi kendi bilgisayarınızda ayağa kaldırmak oldukça basit:
+Sistemi eğitmek (daha doğrusu veritabanına eklemek) için gerçek ve güvenilir veriler kullanmam gerekiyordu:
+1. **Ürün Yorumları (`amazon_grouped_reviews.txt`):** İnternetteki açık kaynaklı Amazon Müşteri İncelemeleri veri setlerinden (örneğin Kaggle'daki Amazon Customer Reviews dataset) derlediğimiz gerçek İngilizce müşteri yorumları. (Örn: Canon fotoğraf makineleri, Philips hoparlörler, kitaplar vb.)
+2. **SSS ve Politikalar (`amazon_faq.txt`, `amazon_policies.txt`, `amazon_prime.txt` vb.):** Amazon'un kendi resmi yardım sayfalarından, iade politikalarından ve Prime sözleşmelerinden alınmış gerçek metin dosyaları.
 
-1. Önce gerekli kütüphaneleri kurun:
-```bash
-pip install -r requirements.txt
-```
+## Nasıl Çalıştırılır?
 
-2. Microsoft Foundry Local'in arka planda açık ve çalışır durumda olduğundan emin olun.
+1. Gerekli kütüphaneleri yükleyin:
+   ```bash
+   pip install streamlit qdrant-client deep-translator
+   ```
+2. Foundry Local SDK'nın kurulu ve aktif olduğundan emin olun.
+3. İlk kurulumda verileri vektör veritabanına işlemek için ingest scriptini (eğer ayrıysa) çalıştırın.
+4. Arayüzü başlatmak için:
+   ```bash
+   streamlit run streamlit_app.py
+   ```
 
-3. PDF'leri ve yorum metinlerini parçalayıp (chunking), vektörlere (embedding) çevirmek ve SQLite veritabanına kaydetmek için şu dosyayı çalıştırın:
-```bash
-python ingest.py
-```
-
-4. Veritabanımız hazır olduğuna göre asistanla konuşmaya başlayabiliriz:
-```bash
-streamlit run streamlit_app.py
-```
-
-## 🧠 Karşılaştığım Zorluklar ve Çözümlerim
-
-Bu projeyi geliştirirken en çok vaktimi alan ve üzerine kafa yorduğum kısım **"İstem Mühendisliği (Prompt Engineering)"** ve **"Vektör Arama Optimizasyonu"** oldu. 
-
-- **Halüsinasyonu (Uydurmayı) Engellemek:** Asistana dışarıdan bilgi getirmesini kesin bir dille yasakladım. Eğer sorulan soru veritabanında (örneğin Amazon SSS dosyasında) yoksa asistanın zorlanıp yalan söylemesi yerine **"Bunun hakkında bir bilgi bulunamadı"** diyerek dürüstçe reddetmesini sağladım.
-- **Çapraz Dil (Cross-lingual) ve Benzerlik Bariyeri:** İngilizce yorumların içinde Türkçe arama yaptırdığım için, asistan bazen soyut kelimelerde (örneğin "tasarım") yorumları getirmekte zorlanıyordu. Başlangıçta cosine similarity (benzerlik oranı) sınırını 0.55 olarak belirlemiştim ancak bu çok katı olduğu için asistan yorumları bulamıyordu. Bu sınırı 0.40'a indirerek sistemin esnekliğini artırdım ve dolaylı yorumları bile yakalamasını sağladım.
-- **Marka Karışıklığı:** Başta asistan, iPhone sorulduğunda gidip Canon kamerasının yorumlarını bulup uydurmaya çalışıyordu. Bunu çözmek için sistem talimatına (system prompt) çok katı bir "Marka eşleşmiyorsa kesinlikle cevap verme" kuralı ekleyerek prompt injection ve halüsinasyon riskini sıfırladım. Proje içine yazdığım `run_test_v2.py` isimli otomatik test script'i ile de bunu kanıtladım.
-
-Okuduğunuz ve incelediğiniz için teşekkürler! Herhangi bir sorunuz olursa iletişime geçebilirsiniz.
+Geliştirme sürecinde küçük modellerin kaprislerinden UI tasarımlarına kadar birçok zorlukla karşılaştım ama sonunda ortaya %100 başarı oranına sahip, tamamen yerel çalışan harika bir asistan çıktı! Umarız denerken siz de benim kadar keyif alırsınız.

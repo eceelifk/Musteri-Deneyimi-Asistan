@@ -27,7 +27,7 @@ Amacım; hem ürün yorumlarını analiz edip özetleyen hem de Amazon'un iade, 
 
 * **Python:** Projenin ana omurgası.
 * **Streamlit (`streamlit`):** Modern, hızlı ve etkileşimli web arayüzünü oluşturmak için.
-* **Qdrant (`qdrant-client`):** Belgelerimizi semantik (anlamsal) olarak arayabildiğimiz, inanılmaz hızlı yerel vektör veritabanımız.
+* **SQLite & sqlite-vec:** Belgelerimizi semantik (anlamsal) olarak arayabildiğimiz, inanılmaz hızlı ve tamamen yerel (sunucusuz) vektör veritabanımız.
 * **Foundry Local SDK:** Yapay zeka modellerini bilgisayarda yerel (offline) olarak çalıştırmak için kullandığım altyapı.
 * **Qwen3-1.7B Modeli:** Çok hafif ama mantık yürütme kabiliyeti yüksek olan yerel LLM (Büyük Dil Modeli) motorumuz.
 * **Qwen3-Embedding-0.6B:** Metinleri vektörlere (sayılara) çevirip veritabanına kaydetmemizi ve benzerlik araması yapmamızı sağlayan embedding modeli.

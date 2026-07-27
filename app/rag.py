@@ -91,12 +91,13 @@ YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on t
 {SYSTEM_PROMPT}
 
 ADDITIONAL RULES FOR REVIEWS:
-1. Write a comprehensive and detailed explanation of what customers experienced, mentioning specific features they liked or disliked.
-2. Summarize the consensus in ONE continuous paragraph.
-3. NEVER use bold text, bullet points, numbers, or markdown lists.
-4. CRITICAL: DO NOT use the word "reviews". Instead, say "Customers mentioned" or "People said".
-5. At the end, estimate a star rating like this: "Estimated Rating: 4/5 stars".
-5. Start directly with the core answer. Do not use introductory phrases."""
+1. CRITICAL: First check if the retrieved context actually talks about the specific product or topic the user is asking about. If it does NOT, you MUST say exactly: "I do not have any information regarding this product in my database." and NOTHING else. Do not give a star rating.
+2. If the context IS relevant, write a comprehensive and detailed explanation of what customers experienced.
+3. Summarize the consensus in ONE continuous paragraph.
+4. NEVER use bold text, bullet points, numbers, or markdown lists.
+5. CRITICAL: DO NOT use the word "reviews". Instead, say "Customers mentioned" or "People said".
+6. At the end, estimate a star rating like this: "Estimated Rating: 4/5 stars".
+7. Start directly with the core answer. Do not use introductory phrases."""
         
         user_prompt = f"""Context:
 {context}
@@ -115,9 +116,10 @@ YOUR TASK: Answer the user's question based ONLY on the provided English DOCUMEN
 {SYSTEM_PROMPT}
 
 ADDITIONAL RULES FOR FAQ:
-1. Write naturally and provide detailed, helpful information.
-2. Write ONLY ONE plain paragraph. NEVER use bold text, bullet points, numbers, or markdown lists.
-3. Start your response IMMEDIATELY with the direct answer. DO NOT say "Based on the context" or "Here is the information".
+1. CRITICAL: If the provided context does not explicitly contain the answer to the user's question, you MUST say exactly: "I do not have any information regarding this question in my database." and NOTHING else.
+2. If it is relevant, write naturally and provide detailed, helpful information.
+3. Write ONLY ONE plain paragraph. NEVER use bold text, bullet points, numbers, or markdown lists.
+4. Start your response IMMEDIATELY with the direct answer. DO NOT say "Based on the context" or "Here is the information".
 """
         user_prompt = f"""Context:
 {context}

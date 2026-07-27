@@ -1,12 +1,12 @@
-import argostranslate.package
-import argostranslate.translate
+from deep_translator import GoogleTranslator
 import re
 
 def tr_to_en(text):
     if not text or not text.strip():
         return text
     try:
-        return argostranslate.translate.translate(text, 'tr', 'en')
+        translator = GoogleTranslator(source='tr', target='en')
+        return translator.translate(text)
     except Exception as e:
         print(f"Çeviri hatası (TR->EN): {e}")
         return text
@@ -18,7 +18,8 @@ def en_to_tr(text):
     if not text or not text.strip():
         return text
     try:
-        return argostranslate.translate.translate(text, 'en', 'tr')
+        translator = GoogleTranslator(source='en', target='tr')
+        return translator.translate(text)
     except Exception as e:
         print(f"Çeviri hatası (EN->TR): {e}")
         return text

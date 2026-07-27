@@ -213,11 +213,19 @@ Provide a short, clear answer. DO NOT loop or repeat sentences. Stop when finish
                                 buffer = ""
                             break
                         
-                # Loop detection using visible_answer length
-                if len(visible_answer) > 1500:
-                    yield "\n\n... (Cevap çok uzadığı veya tekrar döngüsüne girdiği için otomatik olarak kesildi.)"
-                    yielded_anything = True
-                    break
+                # Akıllı Tekrar Tespit Sistemi (Smart Repetition Detection)
+                # Yeni bir satırın, bir önceki veya ondan önceki satırla aynı olup olmadığını kontrol eder
+                import re
+                lines = [line.strip() for line in visible_answer.split('\n') if line.strip()]
+                if len(lines) >= 3:
+                    # Rakamları ve noktalama işaretlerini temizleyerek sadece metne odaklan (Örn: "31. Fiyat" -> "fiyat")
+                    clean_lines = [re.sub(r'^[\d\W]+', '', l).strip().lower() for l in lines]
+                    last_line = clean_lines[-1]
+                    
+                    if len(last_line) > 5: # Çok kısa (boş) kelimeleri sayma
+                        # Eğer son yazılan cümle, önceki 2 cümleden biriyle birebir aynıysa (döngü başladıysa)
+                        if last_line == clean_lines[-2] or (len(clean_lines) >= 3 and last_line == clean_lines[-3]):
+                            break # Sessizce kes, hata mesajı verme
 
             if line_buffer.strip():
                 yield line_buffer

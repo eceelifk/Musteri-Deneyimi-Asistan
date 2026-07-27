@@ -11,7 +11,7 @@ def _get_en_tr():
     global _en_tr_model, _en_tr_tokenizer
     if _en_tr_model is None:
         print("Loading EN->TR offline model...")
-        model_name = "Helsinki-NLP/opus-tatoeba-en-tr"
+        model_name = "Helsinki-NLP/opus-mt-tc-big-en-tr"
         _en_tr_tokenizer = MarianTokenizer.from_pretrained(model_name)
         _en_tr_model = MarianMTModel.from_pretrained(model_name)
     return _en_tr_model, _en_tr_tokenizer

@@ -1,6 +1,6 @@
 from app.llm import ask_llm
 from app.retrieve import retrieve
-from app.translate import tr_to_en, en_to_tr
+from app.translate import translate_tr_to_en, translate_en_to_tr, translate_stream_en_to_tr
 from app.memory import add_to_memory
 from app.config import TOP_K, MINIMUM_SIMILARITY, SYSTEM_PROMPT
 
@@ -40,7 +40,7 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
     # Context-aware retrieval: if we have history, prepend the last question to the search query
     # to help the vector database find the right product when user says "this product"
     # Translate Turkish query to English for DB search
-    english_query = tr_to_en(question_tr)
+    english_query = translate_tr_to_en(question_tr)
     
     # SADECE VERİTABANINDA SEMANTİK OLARAK ARAYACAĞIZ (ASIN FİLTRESİ YOK)
     try:
@@ -86,14 +86,14 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
 
     if filter_type == "review":
         system_instruction = f"""You are Amazon's expert Customer Advisor.
-YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on the provided PRODUCT REVIEWS. You MUST reply in TURKISH.
+YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on the provided English PRODUCT REVIEWS.
 
 {SYSTEM_PROMPT}
 
 ADDITIONAL RULES FOR REVIEWS:
 1. Keep your answer brief, natural, and helpful. Write ONLY ONE natural paragraph.
 2. Summarize the overall consensus based on the reviews. DO NOT use headings, bullet points, or structural markers. DO NOT repeat the same information.
-3. At the end of your paragraph, estimate an overall 5-star rating based on the review sentiments (e.g., "Tahmini Puan: 4/5 Yıldız").
+3. At the end of your paragraph, estimate an overall 5-star rating based on the review sentiments (e.g., "Estimated Rating: 4/5 stars").
 4. Start directly with the core answer. Do not use introductory phrases."""
         
         user_prompt = f"""Context:
@@ -104,11 +104,11 @@ Chat History:
 
 Customer: {english_query}
 
-Please write exactly one short paragraph in TURKISH summarizing the reviews. End your paragraph with an estimated star rating out of 5 based on the overall sentiment (e.g., Tahmini Puan: 4/5 Yıldız). DO NOT use any introductory labels.
+Please write exactly one short paragraph summarizing the reviews. End your paragraph with an estimated star rating out of 5 based on the overall sentiment (e.g., Estimated Rating: 4/5 stars). DO NOT use any introductory labels.
 """
     else:
         system_instruction = f"""You are Amazon's Customer Advisor.
-YOUR TASK: Answer the user's question based ONLY on the provided DOCUMENT CONTEXT. You MUST reply in TURKISH.
+YOUR TASK: Answer the user's question based ONLY on the provided English DOCUMENT CONTEXT.
 
 {SYSTEM_PROMPT}
 
@@ -182,9 +182,8 @@ Provide a clear and direct answer based on the context. You may use bullet point
                                 line_buffer = line_buffer[split_idx + len(delimiter):]
                                 
                                 if line.strip():
-                                    tr_text = en_to_tr(line)
-                                    yield tr_text + delimiter
-                                    visible_answer += tr_text + delimiter
+                                    yield line + delimiter
+                                    visible_answer += line + delimiter
                                     yielded_anything = True
                                 else:
                                     yield delimiter
@@ -225,8 +224,7 @@ Provide a clear and direct answer based on the context. You may use bullet point
                     break
 
             if line_buffer.strip():
-                tr_text = en_to_tr(line_buffer)
-                yield tr_text
+                yield line_buffer
                 yielded_anything = True
             elif line_buffer:
                 yield line_buffer
@@ -235,7 +233,7 @@ Provide a clear and direct answer based on the context. You may use bullet point
                 yield NOT_FOUND_TR
 
         return {
-            "answer_stream": realtime_stream(),
+            "answer_stream": translate_stream_en_to_tr(realtime_stream()),
             "sources": sources,
             "asins": detected_asins if filter_type == "review" else []
         }

@@ -91,10 +91,11 @@ YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on t
 {SYSTEM_PROMPT}
 
 ADDITIONAL RULES FOR REVIEWS:
-1. Keep your answer brief, natural, and helpful. Write ONLY ONE natural paragraph.
-2. Summarize the overall consensus based on the reviews. DO NOT use headings, bullet points, or structural markers. DO NOT repeat the same information.
-3. At the end of your paragraph, estimate an overall 5-star rating based on the review sentiments (e.g., "Estimated Rating: 4/5 stars").
-4. Start directly with the core answer. Do not use introductory phrases."""
+1. Write in extremely simple, basic English. Use short sentences.
+2. Summarize the overall consensus based on the reviews. Write ONLY ONE plain paragraph.
+3. NEVER use bold text, bullet points, numbers, or markdown lists.
+4. At the end of your paragraph, estimate an overall 5-star rating based on the review sentiments (e.g., "Estimated Rating: 4/5 stars").
+5. Start directly with the core answer. Do not use introductory phrases."""
         
         user_prompt = f"""Context:
 {context}
@@ -113,7 +114,9 @@ YOUR TASK: Answer the user's question based ONLY on the provided English DOCUMEN
 {SYSTEM_PROMPT}
 
 ADDITIONAL RULES FOR FAQ:
-1. Start your response IMMEDIATELY with the direct answer. DO NOT say "Based on the context" or "Here is the information".
+1. Write in extremely simple, basic English. Use short sentences.
+2. Write ONLY ONE plain paragraph. NEVER use bold text, bullet points, numbers, or markdown lists.
+3. Start your response IMMEDIATELY with the direct answer. DO NOT say "Based on the context" or "Here is the information".
 """
         user_prompt = f"""Context:
 {context}
@@ -123,7 +126,7 @@ Chat History:
 
 Customer: {english_query}
 
-Provide a clear and direct answer based on the context. You may use bullet points or steps if helpful, but DO NOT repeat the same information multiple times. Stop generating once the question is fully answered.
+Provide a clear and direct answer based on the context. Write a single, plain paragraph. DO NOT use lists, numbers, or bullet points. Stop generating once the question is fully answered.
 """
 
     sources = list(dict.fromkeys(doc["source"] for doc in docs))

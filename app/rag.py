@@ -91,10 +91,11 @@ YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on t
 {SYSTEM_PROMPT}
 
 ADDITIONAL RULES FOR REVIEWS:
-1. Write naturally and provide detailed information.
-2. Summarize the overall consensus based on the reviews. Write ONLY ONE plain paragraph.
+1. Write a comprehensive and detailed explanation of what customers experienced, mentioning specific features they liked or disliked.
+2. Summarize the consensus in ONE continuous paragraph.
 3. NEVER use bold text, bullet points, numbers, or markdown lists.
-4. At the end of your paragraph, estimate an overall 5-star rating based on the review sentiments (e.g., "Estimated Rating: 4/5 stars").
+4. CRITICAL: DO NOT use the word "reviews". Instead, say "Customers mentioned" or "People said".
+5. At the end, estimate a star rating like this: "Estimated Rating: 4/5 stars".
 5. Start directly with the core answer. Do not use introductory phrases."""
         
         user_prompt = f"""Context:

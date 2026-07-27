@@ -41,7 +41,7 @@ def translate_stream_en_to_tr(generator):
     translates the complete sentence to Turkish using local MarianMT, and yields it.
     """
     buffer = ""
-    min_buffer_size = 50
+    min_buffer_size = 15
     is_first_chunk = True
     
     for chunk in generator:
@@ -70,10 +70,6 @@ def translate_stream_en_to_tr(generator):
                         else:
                             translated += ' '
                         yield translated
-                        
-                        if is_first_chunk:
-                            min_buffer_size = 300
-                            is_first_chunk = False
                             
                     except Exception:
                         yield text_to_translate

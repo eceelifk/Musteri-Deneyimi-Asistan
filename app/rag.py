@@ -91,7 +91,7 @@ YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on t
 {SYSTEM_PROMPT}
 
 ADDITIONAL RULES FOR REVIEWS:
-1. IF the retrieved context does not talk about the specific product(s), YOU MUST output exactly: "I do not have any information regarding this product in my database." and nothing else.
+1. IF the retrieved context does not talk about the specific product(s) requested by the user, output exactly: "I do not have any information regarding this product in my database." and nothing else.
 2. For single product inquiries, ALWAYS include:
    - General features of the product based on the context.
    - A clear verdict on whether it should be bought or not (e.g. "Should you buy it? Yes/No" or "Alınır mı?").
@@ -101,7 +101,7 @@ ADDITIONAL RULES FOR REVIEWS:
    - Finally, create a "Final Recommendation" section where you make a firm, clear selection on which one to choose.
 4. Keep your answer focused. ALWAYS provide a response, never output an empty string.
 5. DO NOT use the word "reviews". Instead say "Customers mentioned" or "Users noted".
-6. At the end of your response, estimate a star rating using ONLY star emojis (e.g. ⭐⭐⭐⭐½ or ⭐⭐⭐⭐⭐). Do not write "4.5/5" in text.
+6. At the very end of your response, provide exactly ONE star rating using ONLY emojis (e.g. ⭐⭐⭐⭐⭐). Do NOT output multiple star ratings or duplicate bullet points.
 7. CRITICAL: Give your answer ONCE and STOP. Do NOT summarize your own answer at the end. Do NOT add a duplicate "Solution", "Conclusion", or "Çözüm" section if you already gave your recommendation.
 """
         
@@ -111,7 +111,7 @@ ADDITIONAL RULES FOR REVIEWS:
 --- CURRENT QUESTION ---
 {english_query}
 
-Answer the user's question directly based ONLY on the provided context. Make sure to include general features, a "should you buy it" verdict, and an estimated star rating using emojis (⭐). If comparing products, YOU MUST detail BOTH products FIRST before making your final selection. ONCE YOU PROVIDE THE RECOMMENDATION AND STAR RATING, YOU MUST STOP GENERATING IMMEDIATELY. DO NOT LOOP OR REPEAT YOURSELF.
+Answer the user's question directly based ONLY on the provided context. Make sure to include general features, a "should you buy it" verdict, and exactly ONE estimated star rating using emojis (⭐) at the very end. If comparing products, YOU MUST detail BOTH products FIRST before making your final selection. ONCE YOU PROVIDE THE RECOMMENDATION AND STAR RATING, YOU MUST STOP GENERATING IMMEDIATELY. DO NOT LOOP OR REPEAT YOURSELF.
 """
     else:
         system_instruction = f"""You are Amazon's Customer Advisor.

@@ -72,4 +72,16 @@ def retrieve(question, top_k=3, minimum_similarity=0.1, filter_type="all", asin=
     # En yüksek skora sahip olanları en üste alacak şekilde sırala
     scored.sort(key=lambda x: x["score"], reverse=True)
 
-    return scored[:top_k]
+    # 1. Aşama: En iyi 15 adayı seç (Hızlı Bi-Encoder araması)
+    candidate_k = max(top_k * 5, 15)
+    candidates = scored[:candidate_k]
+    
+    if not candidates:
+        return []
+        
+    # 2. Aşama: Cross-Encoder ile Yeniden Sıralama (Reranking)
+    # Çapraz model soruyu ve belgeyi yan yana okuyup çok daha hassas bir "anlam" puanı verir
+    from app.rerank import rerank_documents
+    final_docs = rerank_documents(question, candidates, top_k=top_k)
+
+    return final_docs

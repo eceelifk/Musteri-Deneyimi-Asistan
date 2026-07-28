@@ -51,21 +51,27 @@ def translate_stream_en_to_tr(generator):
                 buffer = buffer[cut_point:]
                 
                 if text_to_translate.strip():
-                    try:
-                        translated = translator.translate(text_to_translate)
-                        if text_to_translate.endswith('\n'):
-                            translated += '\n'
-                        else:
-                            translated += ' '
-                        yield translated
-                        
-                        # İlk cümle hızlıca ekrana düştükten sonra buffer'ı çok daha büyüt ki API hiç yorulmasın
-                        if is_first_chunk:
-                            min_buffer_size = 500
-                            is_first_chunk = False
+                    max_retries = 3
+                    translated = text_to_translate
+                    for attempt in range(max_retries):
+                        try:
+                            translated = translator.translate(text_to_translate)
+                            break
+                        except Exception:
+                            if attempt < max_retries - 1:
+                                import time
+                                time.sleep(0.5)
                             
-                    except Exception:
-                        yield text_to_translate
+                    if text_to_translate.endswith('\n'):
+                        translated += '\n'
+                    else:
+                        translated += ' '
+                    yield translated
+                    
+                    # İlk cümle hızlıca ekrana düştükten sonra buffer'ı çok daha büyüt ki API hiç yorulmasın
+                    if is_first_chunk:
+                        min_buffer_size = 500
+                        is_first_chunk = False
                 else:
                     yield text_to_translate
 

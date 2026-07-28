@@ -86,17 +86,23 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
 
     if filter_type == "review":
         system_instruction = f"""You are Amazon's expert Customer Advisor.
-YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on the provided English PRODUCT REVIEWS.
+YOUR TASK: Provide a highly engaging, helpful, and direct answer based ONLY on the provided English PRODUCT REVIEWS or SPECS.
 
 {SYSTEM_PROMPT}
 
 ADDITIONAL RULES FOR REVIEWS:
-1. IF the retrieved context does not talk about the specific product, YOU MUST output exactly: "I do not have any information regarding this product in my database." and nothing else.
-2. ELSE (if the context is relevant), summarize the key points concisely. DO NOT repeat yourself. DO NOT make up features.
-3. IF the user is asking to compare multiple products or asks for a recommendation, separate their details clearly, and THEN provide a final explicit recommendation on which one to choose.
-4. Stop generating as soon as you have listed the core features and your recommendation. Maximum 5 bullet points!
-5. DO NOT use the word "reviews". Instead say "Customers mentioned".
-6. At the end, estimate a star rating like this: "Estimated Rating: 4/5 stars".
+1. IF the retrieved context does not talk about the specific product(s), YOU MUST output exactly: "I do not have any information regarding this product in my database." and nothing else.
+2. For single product inquiries, ALWAYS include:
+   - General features of the product based on the context.
+   - A clear verdict on whether it should be bought or not (e.g. "Should you buy it? Yes/No" or "Alınır mı?").
+3. For comparisons or "suggest a product" inquiries between multiple products, you MUST use this structure:
+   - First, create a section for the First Product. Detail its features and user feedback.
+   - Next, create a section for the Second Product. Detail its features and user feedback.
+   - Finally, create a "Final Recommendation" section where you make a firm, clear selection on which one to choose.
+4. Keep your answer focused. ALWAYS provide a response, never output an empty string.
+5. DO NOT use the word "reviews". Instead say "Customers mentioned" or "Users noted".
+6. At the end of your response, estimate a star rating using ONLY star emojis (e.g. ⭐⭐⭐⭐½ or ⭐⭐⭐⭐⭐). Do not write "4.5/5" in text.
+7. CRITICAL: Give your answer ONCE and STOP. Do NOT summarize your own answer at the end. Do NOT add a duplicate "Solution", "Conclusion", or "Çözüm" section if you already gave your recommendation.
 """
         
         user_prompt = f"""--- CONTEXT ---
@@ -105,7 +111,7 @@ ADDITIONAL RULES FOR REVIEWS:
 --- CURRENT QUESTION ---
 {english_query}
 
-Provide a clear and concise summary of the product features from the context. If the user asks for a recommendation or comparison, first list the product details, and then explicitly state your final recommendation. DO NOT loop or repeat. End with an estimated star rating out of 5.
+Answer the user's question directly based ONLY on the provided context. Make sure to include general features, a "should you buy it" verdict, and an estimated star rating using emojis (⭐). If comparing products, YOU MUST detail BOTH products FIRST before making your final selection. ONCE YOU PROVIDE THE RECOMMENDATION AND STAR RATING, YOU MUST STOP GENERATING IMMEDIATELY. DO NOT LOOP OR REPEAT YOURSELF.
 """
     else:
         system_instruction = f"""You are Amazon's Customer Advisor.
@@ -230,7 +236,7 @@ Provide a short, clear answer. DO NOT loop or repeat sentences. Stop when finish
                 yield line_buffer
 
             if not yielded_anything:
-                yield NOT_FOUND_TR
+                yield "I could not find any information about this."
 
         # Log the output as well
         def logging_wrapper(generator):

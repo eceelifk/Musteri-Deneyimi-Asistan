@@ -102,9 +102,6 @@ ADDITIONAL RULES FOR REVIEWS:
         user_prompt = f"""--- CONTEXT ---
 {context}
 
---- PREVIOUS CHAT HISTORY ---
-{memory_context}
-
 --- CURRENT QUESTION ---
 {english_query}
 
@@ -124,9 +121,6 @@ ADDITIONAL RULES FOR FAQ:
 """
         user_prompt = f"""--- CONTEXT ---
 {context}
-
---- PREVIOUS CHAT HISTORY ---
-{memory_context}
 
 --- CURRENT QUESTION ---
 {english_query}

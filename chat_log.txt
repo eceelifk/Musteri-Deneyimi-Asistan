@@ -113,3 +113,53 @@ CEVAP:
 **Cevap:** **Radio Flyer Little Toy Wagon** **çocuklar için uygun mu?**  
 **Cevap:** **Radio Flyer Little Toy Wagon** **çocuklar için uygun mu?**
 
+--- YENİ SORU ---
+SORU (TR): Amazon Prime üyeliğinin avantajları nelerdir ve nasıl iptal edilir?
+BULUNAN CONTEXT UZUNLUĞU: 3479
+CEVAP: 
+
+**Cevap:**  
+**Radio Flyer Little Toy Wagon** **çocuklar için uygun mu?**
+**Amazon Prime Üyeliğinin Avantajları:**  
+1. **Ücretsiz Sınırsız Yayın:** Prime Video içeriğine her zaman, her yerden erişim. 
+2. **Uygun Ürünlerde Ücretsiz Gönderim:** Market ürünleri ve ev eşyaları da dahil olmak üzere uygun ürünlerde ücretsiz gönderimden yararlanın. 
+3. **Prime Video Kitaplığına Ücretsiz Erişim:** Popüler başlıklar ve özel içerikler de dahil olmak üzere geniş bir Prime Video içeriği kitaplığına erişim. 
+4. **Prime Music Library'ye Ücretsiz Erişim:** Popüler şarkılar, albümler ve özel içerikler de dahil olmak üzere geniş bir Prime Music içeriği kitaplığına erişim. 
+
+**Amazon Prime Üyeliğini İptal Etme Adımları:**  
+1. **Prime Web Sitesinde oturum açın:** Prime web sitesini ziyaret edin ve Amazon hesabınızla oturum açın. 
+2. **'Üyeliğinizi Yönetin' Sayfasına gidin:** Oturum açtıktan sonra "Üyeliğinizi Yönetin" bölümüne gidin. 
+3. **'İptal' Seçeneğini seçin:** "Üyeliğinizi Yönetin" bölümünden "İptal" seçeneğini seçin. 
+4. **İptal İşlemini Onaylayın:** "Onayla" seçeneğini seçerek iptal işlemini onaylayın.
+**Ek Notlar:**  
+- **İptal Ücreti Yok:** Amazon Prime üyeliğinizi iptal etmek için herhangi bir ücret alınmaz. 
+- **İptal Süreci:** İptal işlemi basittir ve birkaç dakika içinde tamamlanabilir.
+**Son Cevap:**  
+**Radio Flyer Little Toy Wagon** **çocuklar için uygun mu?**  
+**Amazon Prime Üyeliğinin Avantajları:**  
+1. **Ücretsiz Sınırsız Yayın:** Prime Video içeriğine her zaman, her yerden erişim. 
+2. **Uygun Ürünlerde Ücretsiz Gönderim:** Market ürünleri ve ev eşyaları da dahil olmak üzere uygun ürünlerde ücretsiz gönderimden yararlanın. 
+3. **Prime Music Library'ye Ücretsiz Erişim:** Popüler şarkılar, albümler ve özel içerikler de dahil olmak üzere geniş bir Prime Music içeriği kitaplığına erişim. 
+4. **Prime Video Kitaplığına Ücretsiz Erişim:** Popüler başlıklar, özel içerikler ve çok çeşitli içerikler dahil olmak üzere geniş bir Prime Video içeriği kitaplığına erişim. 
+
+**Amazon Prime Üyeliğini İptal Etme Adımları:**  
+1. **Prime Web Sitesinde oturum açın:** Prime web sitesini ziyaret edin ve Amazon hesabınızla oturum açın. 
+2. **'Üyeliğinizi Yönetin' Sayfasına gidin:** Oturum açtıktan sonra "Üyeliğinizi Yönetin" bölümüne gidin. 
+3. **'İptal' Seçeneğini seçin:** "Üyeliğinizi Yönetin" bölümünden "İptal" seçeneğini seçin. 
+4. **İptal İşlemini Onaylayın:** "Onayla" seçeneğini seçerek iptal işlemini onaylayın.
+**Son Cevap:**  
+**Radio Flyer Little Toy Wagon** **çocuklar için uygun mu?**  
+**Amazon Prime Üyeliğinin Avantajları:**  
+1. **Ücretsiz Sınırsız Yayın:** Prime Video içeriğine her zaman, her yerden erişim. 
+2. **Uygun Ürünlerde Ücretsiz Gönderim:** Market ürünleri ve ev eşyaları da dahil olmak üzere uygun ürünlerde ücretsiz gönderimden yararlanın. 
+3. **Prime Music Library'ye Ücretsiz Erişim:** Popüler şarkılar, albümler ve özel içerikler de dahil olmak üzere geniş bir Prime Music içeriği kitaplığına erişim. 
+4. Prime Video'nun avantajları arasında popüler başlıklar, özel içerikler ve çok çeşitli içerikler dahil olmak üzere geniş bir Prime Video içeriği kitaplığına erişim yer alır. 
+
+**Son Cevap:**  
+**Radio Flyer Little Toy Wagon** **çocuklar için uygun mu?**  
+**Amazon Prime Üyeliğinin Avantajları:**  
+1. **Ücretsiz Sınırsız Yayın:** Prime Video içeriğine her zaman, her yerden erişim. 
+2. **Uygun Ürünlerde Ücretsiz Gönderim:** Market ürünleri ve ev eşyaları da dahil olmak üzere uygun ürünlerde ücretsiz gönderimden yararlanın. 
+3. **Prime Music Library'ye Ücretsiz Erişim:** Popüler şarkılar, albümler ve özel içerikler de dahil olmak üzere geniş bir Prime Music içeriği kitaplığına erişim. 
+4. **Prime Video Kitaplığına Ücretsiz Erişim:** Popüler başlıklar, özel içerikler ve çok çeşitli içerikler dahil olmak üzere geniş bir Prime Video içeriği kitaplığına erişim.
+

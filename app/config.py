@@ -33,6 +33,7 @@ Rules:
 - Stop generating once you have answered the question. Do not loop.
 - CRITICAL RULE: If the user asks about a specific product or brand, and the retrieved context contains reviews for a DIFFERENT product or brand, DO NOT try to answer it! You must say you do not know. (e.g. Do not answer an iPhone question using Canon reviews).
 - EXTREMELY IMPORTANT: You are STRICTLY FORBIDDEN from using your pre-trained knowledge. If the provided context does not explicitly contain the answer, you MUST say 'I do not have any information regarding this question in my database.' No exceptions.
+- PRECISION RULE: Read the user's question very carefully and ONLY answer exactly what is asked. Do not confuse related but different concepts (e.g., do not confuse the 30-day 'return window' with the 'refund processing time' which is usually 3-14 days). If they ask for a duration, give the correct duration for that specific process.
 """
 
 

@@ -1,55 +1,76 @@
 # Amazon Müşteri Deneyimi ve SSS Asistanı (Local RAG)
 
-Merhaba! Bu projede, müşteri hizmetleri süreçlerini otomatize etmek ve kullanıcılara Amazon ürünleri hakkında yapay zeka destekli, hızlı ve doğru yanıtlar sunmak için **RAG (Retrieval-Augmented Generation)** tabanlı yerel bir yapay zeka asistanı geliştirdim. 
+Merhaba! Ben bu projeyi, Amazon müşteri hizmetleri süreçlerini otomatize etmek, kullanıcılara Amazon ürünleri ve karmaşık iade/kargo politikaları hakkında saniyeler içinde doğru, eksiksiz ve yapay zeka destekli yanıtlar sunmak amacıyla geliştirdim. 
 
-Amacım; hem ürün yorumlarını analiz edip özetleyen hem de Amazon'un iade, kargo, Prime gibi karmaşık politikalarına anında cevap verebilen akıllı bir destek botu oluşturmaktı. Üstelik tüm bunları internetteki rastgele bilgileri uydurmadan, sadece kendi veritabanımızdaki gerçek verileri kullanarak yaptık!
+Bu asistanın en büyük özelliği; **tamamen yerel (offline) çalışması**, internetteki rastgele bilgileri **uydurmaması (halüsinasyon görmemesi)** ve tamamen benim hazırladığım RAG (Retrieval-Augmented Generation) mimarisiyle, kendi sağladığım gerçek dokümanlara dayanarak cevap vermesidir.
 
-## Neler Yaptım? Hangi Özellikleri Ekledim?
+Aşağıda bu sistemi baştan sona nasıl tasarladığımı, hangi kütüphaneleri neden kullandığımı ve arka planda dönen tüm mühendislik detaylarını bulabilirsiniz.
 
-1. **RAG (Retrieval-Augmented Generation) Altyapısı:** 
-   Modelin halüsinasyon görmesini (bilgi uydurmasını) engellemek için, sorulan soruya önce kendi veritabanımızdan cevap arayan bir yapı kurdum. Sistem sadece bulduğu belgeleri kullanarak cevap üretiyor, bilgi yoksa "Bilmiyorum" diyerek dürüstçe reddediyor.
-2. **Çeviri Katmanı (Translation Layer):** 
-   Veritabanımızdaki ürün yorumları ve Amazon politikaları orijinal dili olan **İngilizce**'ydi. Ancak kullanıcılar Türkçe soru soruyor. Araya `deep-translator` ile bir katman yazdım: Türkçe soru -> İngilizce arama -> İngilizce YZ cevabı -> Türkçe çıktı şeklinde kusursuz ve gerçek zamanlı bir köprü kurdum.
-3. **Akıllı Hafıza (Context Memory):** 
-   Kullanıcının bir önceki sorusunu hatırlayarak bağlamdan kopmayan bir hafıza sistemi entegre ettim. Böylece sohbette "peki iade süresi nedir?" dendiğinde neyden bahsedildiğini anlıyor.
-4. **Anti-Döngü (Loop Detection) Algoritması:** 
-   Küçük parametreli yerel modellerin kronik sorunu olan "aynı kelimeleri / paragrafları tekrar etme" sorununu çözmek için özel bir algoritma yazdım. Model kendini tekrar etmeye başladığı an (100 kelimeye kadar), bunu fark edip üretimi anında kesiyor.
-5. **Modern ve Hızlı Arayüz (UI):** 
-   Streamlit kullanarak Amazon'un orijinal renk ve fontlarına benzeyen, şık, temiz ve "Sohbeti Temizle" özellikli modern bir chat arayüzü tasarladım.
-6. **Gerçek Zamanlı Akış (Streaming):** 
-   Cevabın tamamlanmasını beklemeden, kelime kelime ekrana dökülmesini sağlayan Streaming yapısını kurdum.
-7. **Performans ve Hız Optimizasyonu:** 
-   Veri getirme sayısını (`TOP_K`) optimize ederek ve promptları sadeleştirerek modelin tepki süresini saniyelere indirdim.
-8. **Test Otomasyonu:** 
-   `run_test_v3.py` isimli bir script ile 20 farklı zorlayıcı soru (yorum, SSS ve uydurma tuzak sorular) hazırlayarak sistemin %100 doğrulukla çalıştığını kanıtladım.
+---
 
-## Hangi Teknolojileri ve Kütüphaneleri Kullandım?
+## Projeyi Nasıl Kurguladım? (Mimari ve İşleyiş)
 
-* **Python:** Projenin ana omurgası.
-* **Streamlit (`streamlit`):** Modern, hızlı ve etkileşimli web arayüzünü oluşturmak için.
-* **SQLite & sqlite-vec:** Belgelerimizi semantik (anlamsal) olarak arayabildiğimiz, inanılmaz hızlı ve tamamen yerel (sunucusuz) vektör veritabanımız.
-* **Foundry Local SDK:** Yapay zeka modellerini bilgisayarda yerel (offline) olarak çalıştırmak için kullandığım altyapı.
-* **Qwen3-1.7B Modeli:** Çok hafif ama mantık yürütme kabiliyeti yüksek olan yerel LLM (Büyük Dil Modeli) motorumuz.
-* **Qwen3-Embedding-0.6B:** Metinleri vektörlere (sayılara) çevirip veritabanına kaydetmemizi ve benzerlik araması yapmamızı sağlayan embedding modeli.
-* **Deep Translator (`deep-translator`):** Araya koyduğum gerçek zamanlı İngilizce-Türkçe çeviri motoru (Google Translator altyapısı).
+Sistemi birkaç farklı akıllı katmana böldüm. Kullanıcı Türkçe soru sorduğunda arka planda mükemmel bir orkestra çalışıyor:
 
-## Verileri Nereden Bulduk?
+### 1. Veri İşleme ve Parçalama (Chunking) Stratejim
+Yapay zekanın uzun dokümanları sindirebilmesi için onları küçük parçalara bölmem gerekiyordu. Bunun için `app/chunk.py` ve `app/loader.py` dosyalarında iki farklı algoritma yazdım:
+* **SSS ve Politikalar İçin:** Metinleri paragraflara ayırıp **700 karakterlik** parçalara böldüm. Ancak anlamın kopmaması için (Kayan Pencere / Sliding Window mantığıyla) parçaların birbirinin üstüne **150 karakter örtüşmesini (overlap)** sağladım.
+* **Ürün Yorumları İçin:** Yorumların rastgele bölünmesi, "Hangi ürünün yorumu bu?" sorusunu doğuruyordu. Bunun önüne geçmek için harika bir mantık kurdum: Yorumları **650 karakterlik** gruplara böldüm ama yeni bir parçaya geçerken **en başa mutlaka Ürün İsmi ve ASIN Kodunu** otomatik olarak tekrar yazdırdım. Böylece yapay zeka parçaları bulduğunda hangi ürüne ait olduğunu asla karıştırmıyor.
 
-Sistemi eğitmek (daha doğrusu veritabanına eklemek) için gerçek ve güvenilir veriler kullanmam gerekiyordu:
-1. **Ürün Yorumları (`amazon_grouped_reviews.txt`):** İnternetteki açık kaynaklı Amazon Müşteri İncelemeleri veri setlerinden (örneğin Kaggle'daki Amazon Customer Reviews dataset) derlediğimiz gerçek İngilizce müşteri yorumları. (Örn: Canon fotoğraf makineleri, Philips hoparlörler, kitaplar vb.)
-2. **SSS ve Politikalar (`amazon_faq.txt`, `amazon_policies.txt`, `amazon_prime.txt` vb.):** Amazon'un kendi resmi yardım sayfalarından, iade politikalarından ve Prime sözleşmelerinden alınmış gerçek metin dosyaları.
+### 2. Vektörleştirme (Embedding) Motoru
+Metinleri yapay zekanın anlayabileceği sayılara (vektörlere) çevirmek için **Foundry Local SDK** üzerinden **Qwen3-Embedding-0.6B** modelini kullandım. Bu sayede verilerimi hiçbir bulut sunucuya göndermeden, tamamen yerel cihazımda devasa uzaysal koordinatlara dönüştürebildim.
+
+### 3. Işık Hızında Vektör Veritabanı (SQLite + sqlite-vec)
+Arama işlemlerini yapmak için Pinecone veya Milvus gibi ağır sunucu tabanlı veritabanları kurmak yerine, inanılmaz hafif ama çok güçlü olan **SQLite** ve onun C ile yazılmış **`sqlite-vec`** uzantısını projeye entegre ettim.
+Kullanıcı soru sorduğunda, soru anında vektöre çevriliyor ve veritabanımdaki binlerce parça arasından (Kosinüs Benzerliği - Cosine Similarity matematiği ile) eşleşen dokümanlar milisaniyeler içinde bulunup getiriliyor.
+
+### 4. Çeviri Katmanı (Real-time Translation Bridge)
+Verilerim ve kullandığım LLM modeli (Qwen3) en verimli **İngilizce** çalışıyor. Ancak kullanıcılar soruları Türkçe soruyordu. Aradaki bu uçurumu kapatmak için **`deep-translator`** kütüphanesiyle dinamik bir köprü yazdım:
+* Kullanıcının Türkçe sorusu anında İngilizceye çevrilip veritabanında aranıyor.
+* En can alıcı nokta ise üretilen cevabın çevirisi: LLM cevabı kelime kelime (streaming) üretirken, araya yazdığım `translate_stream_en_to_tr` fonksiyonu sayesinde gelen kelimeler bir havuzda (buffer) toplanıyor. Sistem bir nokta (.), soru işareti (?) veya ünlem (!) görene kadar bekliyor; **tamamlanmış, mantıklı bir cümle elde ettiğinde** bunu Türkçeye çevirip ekrana öyle basıyor. (Böyle yapmasaydım yarım kelimeler çevrilip anlamsız cümleler çıkacaktı).
+
+### 5. Beyin (Qwen3-1.7B ve RAG Orkestrası)
+Bağlamdan kopmayan cevaplar üretmek için yine Foundry Local SDK üzerinden **Qwen3-1.7B** modelini entegre ettim. Sistemin zeki olmasını sağlayan yer, yazdığım **System Prompt** (Sistem Talimatları) kurallarıdır:
+* Modele kesin bir dille *"Sadece bulduğum belgelere bak, kendi bilgini asla kullanma, bilmiyorsan bilmiyorum de"* kuralını koydum (Anti-Halüsinasyon).
+* Ürün yorumları isteniyorsa; kullanıcının kararını kolaylaştırmak için modelin cümlenin sonuna *"Alınır mı: Evet/Hayır"* tavsiyesi ile birlikte otomatik olarak yıldız (⭐⭐⭐⭐) vermesini zorunlu kıldım.
+* **Anti-Döngü Algoritması:** Küçük modellerin bazen takılıp aynı cümleyi sonsuza kadar tekrar etme huyu vardır. `rag.py` içerisine, her üretilen yeni cümleyi bir öncekiyle kıyaslayan ve tekrar başladığı an üretimi otomatik kesen özel bir güvenlik algoritması yazdım.
+* **Akıllı Hafıza:** Sorulan son 1000 karakterlik geçmişi prompt'un içine gömerek modelin bağlamı ("peki iade süresi nedir?" sorusundaki ana objeyi) hatırlamasını sağladım.
+
+### 6. RAM Dostu "Tembel Yükleme" (Lazy Loading)
+Uygulama açılır açılmaz yapay zeka modelleri RAM'i doldurup bilgisayarı kilitlemesin diye özel bir Lazy Loading mimarisi kurdum. Modeller sadece kullanıcı **ilk sorusunu sorduğu anda** yüklenir ve sonraki sorularda RAM'de hazır beklediği için akıcı bir deneyim sunar.
+
+### 7. Modern ve Akıcı Arayüz (Streamlit)
+Kullanıcı deneyimini en üst seviyeye çıkarmak için **Streamlit** kullandım. Orijinal Amazon renklerine ve modern tasarım dillerine uygun, şık CSS kodları yazdım. Arayüze "Temel Sorular" ve "Ürün Hakkında" şeklinde filtreler koyarak arama performansını noktasal atışa çevirdim.
+
+---
+
+## Hangi Teknolojileri ve Verileri Kullandım?
+
+*   **Python:** Projenin omurgası.
+*   **Foundry Local SDK:** Yapay zeka modellerini cihazımda offline ve güvenli çalıştırmak için.
+*   **Qwen3-1.7B:** Dil modelimiz (Metin üretimi).
+*   **Qwen3-Embedding-0.6B:** Metinleri sayılara (vektörlere) dönüştüren modelimiz.
+*   **sqlite3 & sqlite-vec:** Sunucusuz, hızlı vektör veritabanımız.
+*   **streamlit:** Şık, modern sohbet arayüzü (UI).
+*   **deep-translator:** Google Çeviri altyapısı ile anlık dil köprüsü.
+*   **Kullandığım Veriler:** `data` klasörünün altında topladığım; Amazon'un resmi iade, teslimat ve kampanya politikaları (faq ve pdf dosyaları) ile Kaggle/Açık veri setlerinden toplanan gerçek, İngilizce Amazon ürün yorumları (`amazon_grouped_reviews.txt`).
+
+---
 
 ## Nasıl Çalıştırılır?
 
-1. Gerekli kütüphaneleri yükleyin:
+1. Gerekli kütüphaneleri (eğer sisteminizde eksikse) kurun:
    ```bash
-   pip install streamlit qdrant-client deep-translator
+   pip install streamlit deep-translator
    ```
-2. Foundry Local SDK'nın kurulu ve aktif olduğundan emin olun.
-3. İlk kurulumda verileri vektör veritabanına işlemek için ingest scriptini (eğer ayrıysa) çalıştırın.
-4. Arayüzü başlatmak için:
+2. Foundry Local SDK'nın kurulu ve aktif olduğundan emin olun (Modellerin çalışması için zorunludur).
+3. (Opsiyonel) İlk kurulumda metinleri vektör veritabanına işlemek için ingest scriptini çalıştırın:
+   ```bash
+   python ingest.py
+   ```
+4. Uygulamayı başlatın:
    ```bash
    streamlit run streamlit_app.py
    ```
 
-Geliştirme sürecinde küçük modellerin kaprislerinden UI tasarımlarına kadar birçok zorlukla karşılaştım ama sonunda ortaya %100 başarı oranına sahip, tamamen yerel çalışan harika bir asistan çıktı! Umarız denerken siz de benim kadar keyif alırsınız.
+Aylarca süren denemeler, küçük dil modellerinin kaprisleriyle boğuşmalar, kelime kelime çeviri senkronizasyonu dertleri derken, tamamen offline ortamda profesyonel bir Amazon temsilcisi kalitesinde cevap verebilen bu sistemi yazmak müthiş keyifliydi. Umarız denerken siz de benim kadar etkilenirsiniz! 🚀

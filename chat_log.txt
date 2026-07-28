@@ -541,3 +541,69 @@ CEVAP:
 **Son Cevap:**
 **Canon 580EX Flash kullanıcı için daha iyi bir seçimdir.**
 
+--- YENİ SORU ---
+SORU (TR): Aldığım ürünü nasıl iade edebilirim? İade süresi kaç gün?
+BULUNAN CONTEXT UZUNLUĞU: 1958
+CEVAP: 
+
+Amazon'dan satın alınan bir ürünü iade etmek için şu adımları izleyin:
+1. **İadeyi Başlatın**: "Siparişlerim" sayfanıza gidin. Ürünü içeren siparişi bulun ve "Ürünü İade Et" veya "Değiştir" seçeneğini tıklayın.
+2. **İade Nedenini Seçin**: İade nedenini seçin (örn. ürün arızalı, fikrimi değiştirdim).
+3. **İadeyi Onaylayın**: İade talebini gönderin.
+**İade Süresi**: İade süresi genellikle müşteriye teslimat tarihinden itibaren 30 gündür.
+**İade Koşulları**: Ürünün kullanılmamış ve hasarsız olması gerekmektedir.
+**Not**: Ürün hasarlı veya barkodu eksik ise iade kabul edilmeyebilir.
+
+--- YENİ SORU ---
+SORU (TR): Aldığım ürünü nasıl iade edebilirim? İade süresi kaç gün?
+BULUNAN CONTEXT UZUNLUĞU: 2664
+CEVAP: 
+
+Amazon'dan satın alınan bir ürünün iade süresi genellikle satın alma tarihinden itibaren **30 gündür**. Ancak bu süre, ürün türüne, satıcı politikalarına ve satıcının sağladığı özel iade talimatlarına bağlı olarak değişiklik gösterebilir.
+
+--- YENİ SORU ---
+SORU (TR): İade ettiğim ürünün ücret iadesi (refund) kartıma ne zaman yansır?
+BULUNAN CONTEXT UZUNLUĞU: 2421
+CEVAP: 
+
+İade ettiğiniz ürünün para iadesi, **iade ürünün depoya ulaşması ve durumu kontrol edildikten sonra** kartınıza yansıyacaktır. 
+
+Geri ödeme süreci, satıcının politikalarına bağlı olarak genellikle iade tarihinden itibaren **30 gün** sürer.
+
+--- YENİ SORU ---
+SORU (TR): İade ettiğim ürünün ücret iadesi (refund) kartıma ne zaman yansır?
+BULUNAN CONTEXT UZUNLUĞU: 1379
+CEVAP: 
+
+İade ettiğiniz ürünün para iadesi hediye kartı bakiyesi olarak işleme alınacaktır. Bu geri ödeme genellikle iade edilen ürünün Amazon'a veya satıcının deposuna ulaşmasından sonra **3-5 iş günü** içinde kartınızda görünür.
+
+--- YENİ SORU ---
+SORU (TR): İade ettiğim ürünün ücret iadesi (refund) kartıma ne zaman yansır?
+BULUNAN CONTEXT UZUNLUĞU: 1730
+CEVAP: 
+
+İade işlemi gerçekleştikten sonra 2-3 iş günü içerisinde iadeniz kartınıza yansıyacaktır.
+
+--- YENİ SORU ---
+SORU (TR): Aldığım ürünü nasıl iade edebilirim? İade süresi kaç gün?
+BULUNAN CONTEXT UZUNLUĞU: 2505
+CEVAP: 
+
+Satın aldığınız bir ürünü iade etmek için şu adımları izleyin:
+1. **İade Süresini Kontrol Edin**:  
+   - İade süresi genellikle satın alma tarihinden itibaren **30 gündür**. 
+   - Bazı durumlarda iade süresi, ürüne ve satıcının politikalarına bağlı olarak daha kısa (örneğin bazı kategorilerde 14 gün) veya daha uzun olabilir.
+2. **Ürünün Kullanılmamış ve Hasarsız olduğundan emin olun**:  
+   - Ürün kullanılmamış, hasarsız ve tam durumda olmalıdır. 
+   - Ürün hasarlı veya barkodu eksik ise iade kabul edilmeyecektir.
+3. **Ürünü İade Edin**:  
+   - İade süresi dolduktan sonra ürün artık iade edilemez. 
+   - İade süresi dolmamış ise ürün belirtilen iade süresi içerisinde iade edilebilir.
+**Son Cevap**:  
+Bir ürünü iade etmek için ürünün kullanılmadığından, hasar görmediğinden ve aksesuarları ve etiketleriyle birlikte eksiksiz olduğundan emin olun. İade süresi genellikle satın alma tarihinden itibaren **30 gündür**, ancak ürüne ve satıcının politikalarına bağlı olarak değişiklik gösterebilir.
+
+--- YENİ SORU ---
+SORU (TR): Canon 430EX Flaş ürününü alanlar en çok hangi özelliğini beğenmiş? Özetler misin?
+BULUNAN CONTEXT UZUNLUĞU: 3519
+CEVAP: Bu konuda herhangi bir bilgi bulamadım.
+

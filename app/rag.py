@@ -99,13 +99,14 @@ ADDITIONAL RULES FOR REVIEWS:
 6. At the end, estimate a star rating like this: "Estimated Rating: 4/5 stars".
 """
         
-        user_prompt = f"""Context:
+        user_prompt = f"""--- CONTEXT ---
 {context}
 
-Chat History:
+--- PREVIOUS CHAT HISTORY ---
 {memory_context}
 
-Customer: {english_query}
+--- CURRENT QUESTION ---
+{english_query}
 
 Provide a clear and concise summary of the product features from the context. If the user asks for a recommendation or comparison, first list the product details, and then explicitly state your final recommendation. DO NOT loop or repeat. End with an estimated star rating out of 5.
 """
@@ -121,13 +122,14 @@ ADDITIONAL RULES FOR FAQ:
 3. DO NOT repeat yourself. Keep it short.
 4. Make the formatting easy to read.
 """
-        user_prompt = f"""Context:
+        user_prompt = f"""--- CONTEXT ---
 {context}
 
-Chat History:
+--- PREVIOUS CHAT HISTORY ---
 {memory_context}
 
-Customer: {english_query}
+--- CURRENT QUESTION ---
+{english_query}
 
 Provide a short, clear answer. DO NOT loop or repeat sentences. Stop when finished.
 """

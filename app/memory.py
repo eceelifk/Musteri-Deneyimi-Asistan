@@ -18,7 +18,7 @@ def get_memory_text():
     text = "Previous conversation:\n"
 
     for item in chat_history:
-        text += f"User: {item['user']}\n"
-        text += f"Assistant: {item['assistant']}\n\n"
+        text += f"Previous Question: {item['user']}\n"
+        text += f"Previous Answer: {item['assistant']}\n\n"
 
     return text

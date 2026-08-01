@@ -10,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 if BASE_DIR not in sys.path:
     sys.path.append(BASE_DIR)
 
-# Ensure Foundry SDK model is loaded
+# Foundry SDK modelinin yüklü olduğundan emin ol
 import app.llm
 
 from app.database import create_database, clear_database, DB_PATH
@@ -25,7 +25,7 @@ def setup_vec_table():
     conn.enable_load_extension(False)
     cursor = conn.cursor()
     
-    # Check embedding dimension by generating a dummy embedding
+    # Örnek bir embedding oluşturarak boyutunu (dimension) kontrol et
     dummy_emb = create_embedding("test")
     dim = len(dummy_emb)
     
@@ -70,12 +70,12 @@ def run_ingest():
         batch_chunks = chunks[i:i+batch_size]
         batch_results = []
         
-        # Calculate embeddings for the batch using multithreading
+        # Çoklu iş parçacığı (multithreading) kullanarak grubun (batch) embedding'lerini hesapla
         with concurrent.futures.ThreadPoolExecutor(max_workers=16) as executor:
             for res in executor.map(get_embedding_for_chunk, batch_chunks):
                 batch_results.append(res)
                 
-        # Write batch to database
+        # Grubu (batch) veritabanına yaz
         for source, doc_type, text, embedding in batch_results:
             cursor.execute(
                 "INSERT INTO documents(source, type, chunk, embedding) VALUES (?, ?, ?, ?)",

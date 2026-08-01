@@ -77,7 +77,7 @@ def translate_stream_en_to_tr(generator):
                 else:
                     yield text_to_translate
 
-    # Translate anything left in the buffer
+    # Buffer'da (hafızada) kalan son metni de çevir
     if buffer.strip():
         try:
             res = translator.translate(buffer)

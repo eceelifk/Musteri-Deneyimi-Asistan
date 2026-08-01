@@ -37,9 +37,9 @@ def ask(question_tr: str, filter_type: str = "all") -> dict:
     from app.embedding import unload_embedding
     from app.memory import chat_history
     
-    # Context-aware retrieval: if we have history, prepend the last question to the search query
-    # to help the vector database find the right product when user says "this product"
-    # Translate Turkish query to English for DB search
+    # Bağlama duyarlı arama: eğer geçmiş varsa, arama sorgusunun başına son soruyu ekle
+    # kullanıcı "bu ürün" dediğinde vektör veritabanının doğru ürünü bulmasına yardımcı olmak için
+    # Veritabanı araması için Türkçe sorguyu İngilizceye çevir
     english_query = translate_tr_to_en(question_tr)
     
     # SADECE VERİTABANINDA SEMANTİK OLARAK ARAYACAĞIZ (ASIN FİLTRESİ YOK)
@@ -239,7 +239,7 @@ Provide a short, clear answer. DO NOT loop or repeat sentences. Stop when finish
             if not yielded_anything:
                 yield "I could not find any information about this."
 
-        # Log the output as well
+        # Çıktıyı aynı zamanda loglara kaydet
         def logging_wrapper(generator):
             full_response = ""
             for chunk in generator:

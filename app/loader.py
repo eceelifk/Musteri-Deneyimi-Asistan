@@ -245,7 +245,7 @@ def load_documents():
             path = os.path.join(root, file)
             lower_file = file.lower()
 
-            # Determine doc_type based on the path
+            # Dosya yoluna (path) göre belge türünü belirle
             doc_type = "faq" # Default to faq
             if "review" in path.lower():
                 doc_type = "review"
@@ -262,7 +262,7 @@ def load_documents():
             elif lower_file.endswith(".jsonl"):
                 new_docs = load_jsonl(path)
                 
-            # Override metadata type
+            # Metadata (üstveri) türünü ez (üstüne yaz)
             for doc in new_docs:
                 doc.metadata["type"] = doc_type
                 

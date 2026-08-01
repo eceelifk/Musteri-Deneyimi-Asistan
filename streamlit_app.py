@@ -12,10 +12,10 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Turn off Chrome translate warning by setting lang to en
+# Dil ayarını tr yaparak Chrome çeviri uyarısını kapat
 components.html("<script>window.parent.document.documentElement.lang = 'tr';</script>", width=0, height=0)
 
-# Amazon Website Clone CSS
+# Amazon Web Sitesi Klon CSS Tasarımı
 st.markdown("""
 <style>
 /* 💎 Ultra Premium Modern Light UI 💎 */
@@ -226,7 +226,7 @@ with st.sidebar:
     st.markdown("---")
     st.info("💡 **İpucu:** Kargo, iade veya hesap işlemlerini 'Temel Sorular'da; ürün performansını 'Ürün Hakkında' seçeneğiyle aratabilirsiniz.")
     
-    # Sohbeti Temizle (Clear State Properly)
+    # Sohbeti Temizle (Geçmişi Tamamen Sıfırla)
     if st.button("Sohbeti Temizle", use_container_width=True):
         st.session_state.messages = []
         if "example_prompt" in st.session_state:

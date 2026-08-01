@@ -23,7 +23,7 @@ def split_documents(documents, chunk_size=700, overlap=150):
                 words = paragraph.split(' ')
                 start = 0
                 while start < len(words):
-                    # Count words until we reach roughly chunk_size characters
+                    # Yaklaşık chunk_size karakter uzunluğuna ulaşana kadar kelimeleri say
                     current_chunk_words = []
                     current_len = 0
                     idx = start
@@ -36,7 +36,7 @@ def split_documents(documents, chunk_size=700, overlap=150):
                     if chunk_text:
                         chunks.append(Document(page_content=chunk_text, metadata=doc.metadata))
                     
-                    # Calculate overlap in words roughly
+                    # Yaklaşık olarak kelime bazında kesişim (overlap) hesapla
                     overlap_words = overlap // 6 # assume 6 chars per word avg
                     start = max(start + 1, idx - overlap_words)
                 continue

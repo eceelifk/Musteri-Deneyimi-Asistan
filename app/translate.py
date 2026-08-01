@@ -55,7 +55,9 @@ def translate_stream_en_to_tr(generator):
                     translated = text_to_translate
                     for attempt in range(max_retries):
                         try:
-                            translated = translator.translate(text_to_translate)
+                            result = translator.translate(text_to_translate)
+                            if result is not None:
+                                translated = result
                             break
                         except Exception:
                             if attempt < max_retries - 1:
@@ -78,6 +80,7 @@ def translate_stream_en_to_tr(generator):
     # Translate anything left in the buffer
     if buffer.strip():
         try:
-            yield translator.translate(buffer)
+            res = translator.translate(buffer)
+            yield res if res is not None else buffer
         except Exception:
             yield buffer

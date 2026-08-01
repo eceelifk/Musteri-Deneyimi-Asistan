@@ -216,11 +216,12 @@ Provide a short, clear answer. DO NOT loop or repeat sentences. Stop when finish
                             break
                         
                 # Akıllı Tekrar Tespit Sistemi (Smart Repetition Detection)
-                # Yeni bir satırın, bir önceki veya ondan önceki satırla aynı olup olmadığını kontrol eder
+                # Yeni bir cümlenin, bir önceki veya ondan önceki cümleyle aynı olup olmadığını kontrol eder
                 import re
-                lines = [line.strip() for line in visible_answer.split('\n') if line.strip()]
+                raw_sentences = re.split(r'[\n\.\!\?]', visible_answer)
+                lines = [line.strip() for line in raw_sentences if line.strip()]
                 if len(lines) >= 3:
-                    # Rakamları ve noktalama işaretlerini temizleyerek sadece metne odaklan (Örn: "31. Fiyat" -> "fiyat")
+                    # Rakamları ve noktalama işaretlerini temizleyerek sadece metne odaklan
                     clean_lines = [re.sub(r'^[\d\W]+', '', l).strip().lower() for l in lines]
                     last_line = clean_lines[-1]
                     

@@ -6,8 +6,10 @@ MODEL_NAME = "qwen3-1.7b"
 # Embedding üretmek için kullanılan model
 EMBEDDING_MODEL_NAME = "qwen3-embedding-0.6b"
 
-# Reranker (Cross Encoder) için kullanılan model
+# Reranker (Cross Encoder) için kullanılan model (Gelecekte Rerank eklenmek istenirse diye duruyor)
 CROSS_ENCODER_MODEL_NAME = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+
+
 
 
 SYSTEM_PROMPT = """

@@ -20,13 +20,25 @@ def split_documents(documents, chunk_size=700, overlap=150):
                     chunks.append(Document(page_content=current_chunk.strip(), metadata=doc.metadata))
                     current_chunk = ""
                 
+                words = paragraph.split(' ')
                 start = 0
-                while start < len(paragraph):
-                    end = start + chunk_size
-                    chunk_text = paragraph[start:end].strip()
+                while start < len(words):
+                    # Count words until we reach roughly chunk_size characters
+                    current_chunk_words = []
+                    current_len = 0
+                    idx = start
+                    while idx < len(words) and current_len < chunk_size:
+                        current_chunk_words.append(words[idx])
+                        current_len += len(words[idx]) + 1 # +1 for space
+                        idx += 1
+                    
+                    chunk_text = " ".join(current_chunk_words).strip()
                     if chunk_text:
                         chunks.append(Document(page_content=chunk_text, metadata=doc.metadata))
-                    start += chunk_size - overlap
+                    
+                    # Calculate overlap in words roughly
+                    overlap_words = overlap // 6 # assume 6 chars per word avg
+                    start = max(start + 1, idx - overlap_words)
                 continue
                 
             if not current_chunk:

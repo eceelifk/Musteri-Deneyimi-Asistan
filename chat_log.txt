@@ -174,3 +174,479 @@ Regarding the refund timeline:
 **Final Answer:**  
 The return window is typically **30 days from the date of purchase**. The refund is usually processed within **10–15 business days** after the refund is approved.
 
+--- YENİ SORU ---
+SORU (TR): Siparişimi nasıl takip edebilirim ve kargom nerede?
+BULUNAN CONTEXT UZUNLUĞU: 1777
+CEVAP: 
+
+Siparişinizi takip etmek ve kargonuzu bulmak için şu adımları izleyin:
+1. **Siparişlerim bölümündeki Siparişinizi Kontrol Edin**:  
+   - Hesabınıza giriş yapın. 
+   - Sipariş ayrıntılarınızı görüntülemek için "Siparişlerim"e gidin.
+2. **Gönderiyi Takip Edin**:  
+   - Siparişinizin yanındaki **"Kargo Takibi"** butonuna tıklayın. 
+   - Kargonuzu bulmak için talimatları izleyin.
+3. **Kargo Şirketiyle İletişime Geçin**:  
+   - Takip görünmüyorsa direkt kargo firmasıyla irtibata geçiniz. 
+   - Kargo firmasına ulaşmak için içerikte verilen iletişim bilgilerini kullanın.
+Bu adımları takip ederek siparişinizi takip edebilir ve kargonuzun yerini tespit edebilirsiniz.
+
+--- YENİ SORU ---
+SORU (TR): Aldığım ürünü nasıl iade edebilirim? İade süresi kaç gün?
+BULUNAN CONTEXT UZUNLUĞU: 2134
+CEVAP: 
+
+Bir ürünü iade etmek için şu adımları izleyin:  
+1. **Siparişlerim** sayfanıza gidin. 2. Ürünü içeren siparişi bulun. 
+3. **"Ürünü İade Et"** veya **"Değişim"** seçeneğine tıklayın. 
+4. **iade nedenini**** seçin (ör. ürün arızalı). 
+5. İade talebini gönderin.
+**İade Süresi**: Genellikle ürünün müşteriye teslim edildiği tarihten itibaren 30 gündür.
+**Not**: İadeye hak kazanılabilmesi için ürünün **kullanılmamış ve hasarsız** olması gerekir.
+
+--- YENİ SORU ---
+SORU (TR): Bana iyi ve fiyat performans açısından mantıklı bir kamera önerebilir misin?
+BULUNAN CONTEXT UZUNLUĞU: 1834
+CEVAP: Bu konuda herhangi bir bilgi bulamadım.
+
+--- YENİ SORU ---
+SORU (TR): Canon 430EX Flaş ürününü alanlar en çok hangi özelliğini beğenmiş? Özetler misin?
+BULUNAN CONTEXT UZUNLUĞU: 2050
+CEVAP: 
+
+Canon 430EX Flash'ın en sevilen özelliği **yüksek çıkışlı flaş**'tır. Bu özellik, **güçlü flaş çıkışı** ve **çeşitli kamera modelleriyle uyumluluğu** nedeniyle büyük beğeni topluyor. Yüksek çıkışlı flaş, Canon 430EX Flaş için **önemli bir satış noktasıdır**.
+
+--- YENİ SORU ---
+SORU (TR): Siparişimi nasıl takip edebilirim ve kargom nerede?
+BULUNAN CONTEXT UZUNLUĞU: 1777
+CEVAP: 
+
+Siparişinizi takip etmek ve kargonuzu bulmak için şu adımları izleyin:
+1. **Siparişlerim Sayfanıza Erişin**:  
+   Amazon hesabınıza giriş yapın. **"Siparişlerim"** bölümüne gidin. Burada, **"Gönderim Takibi"** bağlantısı da dahil olmak üzere sipariş ayrıntılarınızı görüntüleyebilirsiniz.
+2. **Gönderinizi Takip Edin**:  
+   Siparişinizin yanındaki **"Gönderi Takibi"** butonuna tıklayın. Bu sizi gönderinizin durumunu izleyebileceğiniz **"Gönderi Takibi"** sayfasına yönlendirecektir.
+3. **Kargo Şirketi ile iletişime geçin (gerekiyorsa)**:  
+   Gönderiniz gecikirse veya daha fazla yardıma ihtiyacınız olursa belgede belirtilen **"Kargo Şirketi İletişim Bilgileri"** ile iletişime geçin. Gönderinizin durumunu kontrol etmek için Amazon'daki **"Kargo Takibi"** sayfasını da ziyaret edebilirsiniz.
+**Son Not**: Gönderiniz takip edilmiyorsa **"Siparişlerim"** sayfasını kontrol edin ve **"Gönderim Takibi"** bağlantısının doğru şekilde görüntülendiğinden emin olun. Hala bir ilerleme yoksa daha fazla yardım için **"Kargo Şirketi İletişim Bilgileri"** ile iletişime geçin.
+
+--- YENİ SORU ---
+SORU (TR): Amazon Prime üyeliğinin avantajları nelerdir ve nasıl iptal edilir?
+BULUNAN CONTEXT UZUNLUĞU: 2790
+CEVAP: 
+
+Amazon Prime üyeliği, ücretsiz gönderim, Prime Video'ya erişim ve özel fırsatlar dahil olmak üzere çeşitli avantajlar sunar. Prime üyeliğinizi iptal etmek için Amazon hesabınızın "Hesabım" bölümünü ziyaret edin ve üyeliğinizi iptal etmek için talimatları izleyin.
+
+--- YENİ SORU ---
+SORU (TR): İade ettiğim ürünün ücret iadesi (refund) kartıma ne zaman yansır?
+BULUNAN CONTEXT UZUNLUĞU: 2935
+CEVAP: 
+
+İade ettiğiniz ürünün para iadesi, iade ürünün Amazon'a veya satıcının deposuna ulaşmasından sonra 3 ila 5 iş günü içerisinde kartınıza yansıyacaktır.
+
+--- YENİ SORU ---
+SORU (TR): Philips SoundShooter hoparlörün ses kalitesi iyi mi, alınır mı?
+BULUNAN CONTEXT UZUNLUĞU: 3635
+CEVAP: 
+
+**Cevap:**
+**Philips SoundShooter** hoparlör **iyi ses kalitesi** ve **çok yönlü tasarım** sunar. İşte bir döküm:
+### **Genel Özellikler:**  
+- **Ses Kalitesi:** Müzik, podcast'ler ve sesli aramalar için mükemmeldir. 
+- **Tasarım:** Kompakt ve taşınabilir; seyahat veya ev kullanımı için idealdir. 
+- **Pil Ömrü:** Uzun süreli kullanım için uzun ömürlü pil (10 saate kadar).
+### **Kullanıcı Yorumları ve Geri Bildirimi:**  
+1. **Olumlu Geribildirim:**  
+   - **Ses Kalitesi:** Kullanıcılar, konuşmacının net ve zengin ses sunma yeteneğini övüyor. 
+   - **Tasarım:** Kompakt tasarım, taşımayı kolaylaştırır. 
+   - **Pil Ömrü:** Uzun pil ömrü, hoparlörü uzun süre kullanmak isteyen kullanıcılar için büyük bir artıdır.
+2. **Olumsuz Geribildirim:**  
+   - **Fiyat:** Hoparlör, özelliklerine göre makul bir fiyata sahiptir. 
+   - **Dayanıklılık:** Hoparlör dayanıklıdır ve düzenli kullanıma dayanabilir. 
+   - **Uyumluluk:** Hoparlör çeşitli cihaz ve sistemlerle uyumludur.
+### **Son Öneri:**  
+- **Avantajları:** Mükemmel ses kalitesi, kompakt tasarım, uzun pil ömrü ve çeşitli cihaz ve sistemlerle uyumluluk. 
+- **Dezavantajları:** Belirli bir cihaz ve sistem yelpazesiyle sınırlıdır.
+### **Yıldız Derecelendirmesi:**  
+- **⭐⭐⭐⭐⭐** (5 yıldız): Hoparlör, mükemmel ses kalitesi, kompakt tasarımı, uzun pil ömrü ve çeşitli cihaz ve sistemlerle uyumluluğu nedeniyle şiddetle tavsiye edilir.
+**Son Cevap:**  
+**Philips SoundShooter** hoparlörü mükemmel ses kalitesi, kompakt tasarımı, uzun pil ömrü ve çeşitli cihaz ve sistemlerle uyumluluğu nedeniyle önemle tavsiye edilir. Yıldız derecelendirmesi **⭐⭐⭐⭐⭐** (5 yıldız).
+
+--- YENİ SORU ---
+SORU (TR): Siparişimi nasıl takip edebilirim ve kargom nerede?
+BULUNAN CONTEXT UZUNLUĞU: 5308
+CEVAP: 
+
+Siparişinizi ve kargonuzu takip etmek için şu net adımları izleyin:
+1. **Hesabınızda oturum açın**. Sipariş ayrıntılarınız ve kargo takip bilgileriniz burada saklanır.
+2. **Sipariş ayrıntılarına gidin**. Bu, "Siparişlerim" sekmesine tıklayarak veya doğrudan sipariş ayrıntıları sayfasına erişilerek yapılabilir.
+3. **Kargo takip bilgilerine erişin**. Bu işlemi "Kargo Takip" sekmesine tıklayarak veya doğrudan kargo takip bilgileri sayfasına ulaşarak yapabilirsiniz.
+4. **İzleme bilgilerini inceleyin**. Bu, kargo teslimatının takibini, siparişin durumunu ve satıcı veya takip hizmeti tarafından sağlanan her türlü ek bilgiyi içerir.
+Bu net adımları takip ederek siparişinizi ve kargonuzun nerede olduğunu etkili bir şekilde takip edebilirsiniz.
+
+--- YENİ SORU ---
+SORU (TR): Siparişimi nasıl takip edebilirim ve kargom nerede?
+BULUNAN CONTEXT UZUNLUĞU: 1777
+CEVAP: 
+
+Siparişinizi takip etmek ve kargonuzu bulmak için şu adımları izleyin:
+1. **Siparişinize Erişim**: Hesabınızdaki "Siparişlerim" bölümüne gidin. Bu sayfada siparişinizin durumu ve takip ayrıntıları gösterilecektir.
+2. **Gönderinizi Takip Edin**: Siparişinizin yanındaki "Gönderim Takibi" düğmesini bulun. Bu butona tıkladığınızda kargonuza özel takip sayfasına yönlendirileceksiniz.
+3. **Kargo Firması ile İletişime Geçin**: Siparişiniz "Siparişlerim" sayfasında görünmüyorsa direkt kargo firması ile iletişime geçebilirsiniz. Kargo firmasına ulaşmak için içerikte verilen iletişim bilgilerini kullanın.
+Bu adımları takip ederek siparişinizi etkili bir şekilde takip edebilir ve kargonuzun yerini tespit edebilirsiniz.
+
+--- YENİ SORU ---
+SORU (TR): Canon 430EX Flaş ürününü alanlar en çok hangi özelliğini beğenmiş? Özetler misin?
+BULUNAN CONTEXT UZUNLUĞU: 2705
+CEVAP: Bu konuda herhangi bir bilgi bulamadım.
+
+--- YENİ SORU ---
+SORU (TR): İade ettiğim ürünün ücret iadesi (refund) kartıma ne zaman yansır?
+BULUNAN CONTEXT UZUNLUĞU: 1384
+CEVAP: 
+
+İade edilen ürün satıcının deposuna ulaştığında ve belirtilen süre içerisinde iade işlemi tamamlandıktan sonra para iadesi kartınızda görünecektir.
+
+--- YENİ SORU ---
+SORU (TR): Canon 430EX Flaş ürününü alanlar en çok hangi özelliğini beğenmiş? Özetler misin?
+BULUNAN CONTEXT UZUNLUĞU: 2174
+CEVAP: Bu konuda herhangi bir bilgi bulamadım.
+
+--- YENİ SORU ---
+SORU (TR): Siparişimi nasıl takip edebilirim ve kargom nerede?
+BULUNAN CONTEXT UZUNLUĞU: 2416
+CEVAP: 
+
+Siparişinizi takip etmek ve kargonuzu bulmak için şu adımları izleyin:
+1. **Siparişinize Erişin**: Amazon hesabınızda oturum açın ve "Siparişlerim" bölümüne gidin. Burada siparişinizin durumunu ve kargo firmasının durumunu görebilirsiniz.
+2. **Kargonuzu Takip Edin**: Siparişiniz kargo içeriyorsa, "Siparişlerim" sayfanızdaki "Kargo Takip" bölümünü ziyaret ederek kargo takibini yapabilirsiniz. Kargonuzun ve kargo firmasının canlı durumunu buradan görebilirsiniz.
+3. **Amazon Müşteri Hizmetleriyle İletişime Geçin**: Daha fazla yardıma ihtiyacınız olursa "Siparişlerim" sayfanızdaki "Kargoyu Takip Et" bölümünü ziyaret ederek veya Amazon Müşteri Hizmetleri sayfasını ziyaret ederek Amazon Müşteri Hizmetleriyle iletişime geçebilirsiniz. [https://www.amazon.com.tr/gp/help/customer/display.html?nodeId=GENAFPTNLHV7ZACW](https://www.amazon.com.tr/gp/help/customer/display.html?nodeId=GENAFPTNLHV7ZACW)).
+Bu adımları takip ederek siparişinizi etkili bir şekilde takip edebilir ve kargonuzun yerini tespit edebilirsiniz.
+
+--- YENİ SORU ---
+SORU (TR): Siparişimi nasıl takip edebilirim ve kargom nerede?
+BULUNAN CONTEXT UZUNLUĞU: 3548
+CEVAP: 
+
+Siparişinizi takip etmek ve kargonuzu bulmak için aşağıdaki adımları takip edebilirsiniz:
+1. **Amazon hesabınızda oturum açın**. 
+2. **'Siparişlerim' sayfasına gidin**. 
+3. **Takip etmek istediğiniz siparişi seçin**. 
+4. **Siparişin yanındaki 'Gönderi Takibi' butonuna tıklayın**. 
+5. **Kargonuzu bulmak ve durumunu takip etmek için **takip sayfasındaki talimatları izleyin**.
+Ayrıca Amazon'un sunduğu takip sayfasını kullanarak siparişinizin ve kargonuzun durumunu kontrol edebilirsiniz.
+
+--- YENİ SORU ---
+SORU (TR): Amazon Prime üyeliğinin avantajları nelerdir ve nasıl iptal edilir?
+BULUNAN CONTEXT UZUNLUĞU: 4668
+CEVAP: 
+
+**Cevap:**  
+Amazon Prime üyeliğinin avantajları arasında Prime üyelik tarihinden itibaren 30 gün içinde verilen siparişlerde ücretsiz gönderim, Prime Video'ya (özel içerik dahil), Prime Music'e (özel parçalar dahil) ve Prime Gaming'e (özel oyunlar dahil) erişim yer alır. Ayrıca üyelere özel fırsatlar ve 12 aylık Prime üyelik süresi sunulur.
+**Prime Üyeliğinizi İptal Etmek İçin:**  
+1. Amazon hesabınızda oturum açın. 
+2. "Hesabım" > "Prime Üyelik" > "Prime Üyeliğinizi İptal Edin" seçeneğine gidin.  
+3. İptalinizi onaylamak için talimatları izleyin.
+**Not:** İptal işlemi genellikle Prime üyelik tarihinden itibaren 30 gün içinde gerçekleştirilir. Prime üyeliğinizi kullanmadıysanız daha fazla yardım için Amazon ile iletişime geçmeniz gerekebilir.
+
+--- YENİ SORU ---
+SORU (TR): Philips SoundShooter hoparlörün ses kalitesi iyi mi, alınır mı?
+BULUNAN CONTEXT UZUNLUĞU: 5535
+CEVAP: 
+
+**Cevap:**  
+Evet, Philips SoundShooter hoparlörün ses kalitesi mükemmeldir. Zengin bir ses deneyimi sunarak yüksek kaliteli ses arayan herkes için mükemmel bir seçimdir.
+**Yıldız Derecelendirmesi:** ⭐⭐⭐⭐⭐ (5 yıldız)
+**Son Karar:**  
+**Satın Almalı Mısınız?**  
+**Evet satın alınmalıdır.**
+**Özet:**  
+Philips SoundShooter hoparlör, mükemmel ses kalitesi sunarak yüksek kaliteli ses arayan herkes için değerli bir satın alma olanağı sağlar.
+
+--- YENİ SORU ---
+SORU (TR): Amazon Prime üyeliğinin avantajları nelerdir ve nasıl iptal edilir?
+BULUNAN CONTEXT UZUNLUĞU: 1604
+CEVAP: 
+
+Amazon Prime üyeliğinin avantajları şunları içerir:
+1. **Ücretsiz Kargo**: Uygun ürünlerde ücretsiz kargonun keyfini çıkarın. 
+2. **Prime Video**: Orijinal ve klasik TV programlarından oluşan geniş bir kitaplığa hiçbir ekstra ücret ödemeden erişin. 
+3. **Özel Fırsatlar**: Amazon'daki özel fırsatlardan ve indirimlerden yararlanın.
+Prime üyeliğinizi iptal etmek için şu adımları izleyin:  
+1. Amazon hesabınızda oturum açın. 
+2. "Hesabım" > "Prime Üyelik" seçeneğine gidin. 
+3. "Prime Üyeliği İptal Et"e veya ilgili seçeneğe tıklayın.
+Dilediğiniz zaman iptal edebilirsiniz ve iptal etmeniz durumunda o ay içinde kullanılmayan günlerin ücreti iade edilebilir.
+
+--- YENİ SORU ---
+SORU (TR): Aldığım ürünü nasıl iade edebilirim? İade süresi kaç gün?
+BULUNAN CONTEXT UZUNLUĞU: 2923
+CEVAP: 
+
+Amazon'dan satın alınan bir ürünü iade etmek için şu adımları izleyin:
+1. **Geri Dönüşü Başlatın**:  
+   - **Siparişlerim** sayfasına gidin. 
+   - İade edilecek ürünü içeren siparişi bulun.
+2. **Ürünü İade Edin**:  
+   - **"Ürünü İade Et"** veya **"Değiştir"** düğmesine tıklayın. 
+   - **"İade nedeni"**** seçeneğini seçin (örn. ürün arızalı, fikrimi değiştirdim, yanlış ürün geldi).
+3. **İadeyi Gönderin**:  
+   - **iade ayrıntılarını** inceleyin (ör. ürün adı, seri numarası vb.). 
+   - İade işlemini tamamlamak için **"Gönder"****'e tıklayın.
+**İade Süresi**:  
+- Amazon tarafından gönderilen bir ürünün iade süresi genellikle ürünün müşteriye teslim edildiği tarihten itibaren **30 gündür**.
+**Notlar**:  
+- İade süresi ürün detaylarına, satıcının iade politikasına ve diğer faktörlere bağlı olarak değişiklik gösterebilir.
+**Son Cevap**:  
+Amazon'dan satın alınan bir ürünü iade etmek için iade süresi genellikle ürünün müşteriye teslim edildiği tarihten itibaren **30 gündür**. Kesin iade süresi, ürünün ayrıntılarına, satıcının iade politikasına ve diğer faktörlere bağlı olarak değişiklik gösterebilir.
+
+--- YENİ SORU ---
+SORU (TR): Philips SoundShooter hoparlörün ses kalitesi iyi mi, alınır mı?
+BULUNAN CONTEXT UZUNLUĞU: 3819
+CEVAP: 
+
+**Cevap:**  
+Evet, Philips SoundShooter hoparlörün ses kalitesi mükemmeldir. Hoparlör, iyi bas ve orta aralık netliğiyle net, sürükleyici bir ses sunar.
+**Satın Almalı Mısınız?**  
+Evet, Philips SoundShooter, yüksek kaliteli sese değer veren herkes için harika bir yatırımdır.
+**Yıldız Derecelendirmesi:**  
+⭐⭐⭐⭐⭐ (5 yıldız).
+**Son Tavsiye:**  
+Philips SoundShooter, mükemmel ses kalitesi, taşınabilirlik ve dayanıklılık sunan üst düzey bir hoparlördür. Yüksek kaliteli sese değer veren herkes için mükemmel bir seçimdir.
+
+--- YENİ SORU ---
+SORU (TR): Canon 430EX Flaş ürününü alanlar en çok hangi özelliğini beğenmiş? Özetler misin?
+BULUNAN CONTEXT UZUNLUĞU: 4496
+CEVAP: 
+
+**Cevap:**  
+Ürün alıcılarının en çok beğendiği özellik ise **TTL (Objektiften) Ölçüm Özelliğidir**. Bu özellik, kullanıcının doğru pozlamayla fotoğraf çekmesine olanak tanır ve bu, fotoğrafçılar için önemli bir avantajdır.
+
+--- YENİ SORU ---
+SORU (TR): Philips SoundShooter hoparlörün ses kalitesi iyi mi, alınır mı?
+BULUNAN CONTEXT UZUNLUĞU: 4789
+CEVAP: 
+
+**Cevap:**  
+Philips SoundShooter hoparlör mükemmel ses kalitesi, dahili pil ve kompakt tasarım sunar. Ses kalitesi iyi olup, üstün sesi, pili ve tasarımı nedeniyle ürün satın alınmalıdır.
+**Son Yıldız Derecelendirmesi:** ⭐⭐⭐⭐⭐ (5 yıldız).
+
+--- YENİ SORU ---
+SORU (TR): siparişimi hediye paketi yapabilir miyiz
+BULUNAN CONTEXT UZUNLUĞU: 383
+CEVAP: 
+
+Veritabanımda bu soruyla ilgili herhangi bir bilgi yok.
+
+--- YENİ SORU ---
+SORU (TR): How to change Amazon app language?
+BULUNAN CONTEXT UZUNLUĞU: 1003
+CEVAP: 
+
+Amazon uygulamasının dilini değiştirmek için şu adımları izleyin:
+
+1. Cihazınızda Amazon uygulamasını açın. 
+2. Sağ alt köşedeki **Menü**** simgesine (genellikle bir dişli veya üç nokta) dokunun. 
+3. **Ayarlar** > **Ülke ve Dil**'i seçin. 
+4. Listeden tercih ettiğiniz dili seçin. 
+
+Bu, uygulamanın dil ayarlarını güncelleyecektir.
+
+--- YENİ SORU ---
+SORU (TR): Canon 430EX Flaş ürününü alanlar en çok hangi özelliğini beğenmiş? Özetler misin?
+BULUNAN CONTEXT UZUNLUĞU: 1873
+CEVAP: 
+
+**Cevap:**
+Canon 430EX Flaşın en beğenilen özelliği **flaşın bir yandan diğer yana hareket ettirilebilmesidir**. Bu özellik, flaşın **TTL (Lens İçinden) işlevine** bağlanarak onu esnekliğe ve güvenilirliğe değer veren fotoğrafçılar için dikkat çekici bir özellik haline getirir. 
+
+**Yıldız Derecelendirmesi:** ⭐⭐⭐⭐⭐ (5 yıldız)
+**Karar:** Canon 430EX Flaş, **güvenilirliğe, esnekliğe ve kullanım kolaylığına**** öncelik veren fotoğrafçılar için şiddetle tavsiye edilir.
+
+--- YENİ SORU ---
+SORU (TR): Sony Cyber-shot DSC-W290 kameranın fotoğraf kalitesi nasıl, alınır mı?
+BULUNAN CONTEXT UZUNLUĞU: 2899
+CEVAP: 
+
+**Cevap:**
+Sony Cyber-shot DSC-W290 fotoğraf makinesinin fotoğraf kalitesi mükemmel. 12 MP sensör, 5x optik yakınlaştırma ve süper sabit çekim görüntü sabitleme özelliklerine sahiptir. Bu özellikler toplu olarak kameranın mükemmel çözünürlük, odaklama ve hareket bulanıklığı azaltma özelliklerine sahip yüksek kaliteli fotoğraflar üretmesini sağlar. 
+
+**Satın Almalı Mısınız?**
+Evet, mükemmel fotoğraf kalitesi, sağlam özellikleri ve genel performansı nedeniyle Sony Cyber-shot DSC-W290 şiddetle tavsiye edilir. 
+
+**Tahmini Yıldız Derecelendirmesi:**
+⭐⭐⭐⭐⭐ (5 yıldız)
+
+--- YENİ SORU ---
+SORU (TR): Is there a disabled or veteran discount?
+BULUNAN CONTEXT UZUNLUĞU: 442
+CEVAP: 
+
+Veritabanımda bu soruyla ilgili herhangi bir bilgi yok.
+
+--- YENİ SORU ---
+SORU (TR): Siparişimi nasıl takip edebilirim ve kargom nerede?
+BULUNAN CONTEXT UZUNLUĞU: 1936
+CEVAP: 
+
+Siparişinizi takip etmek ve kargonuzu bulmak için şu adımları izleyin:
+
+1. **Siparişlerime Erişim**: Hesabınızdaki "Siparişlerim" bölümüne gidin. Bu sayfada kargo takip bağlantısı da dahil olmak üzere siparişinizle ilgili ayrıntılı bilgi verilmektedir.
+
+2. **Gönderi Takip Bağlantısını Kontrol Edin**: Sipariş sayfanızda "Gönderi Takibi" bağlantısını bulun. İzleme bilgilerini görüntülemek için tıklayın.
+
+3. **Kargonuzu Bulun**: Takip bilgileri, gecikmeler veya güncellemeler de dahil olmak üzere kargonuzun mevcut durumunu gösterecektir.
+
+Bu adımları takip ederek siparişinizi takip edebilir ve kargonuzun yerini tespit edebilirsiniz.
+
+--- YENİ SORU ---
+SORU (TR): Philips SoundShooter hoparlörün ses kalitesi iyi mi, alınır mı?
+BULUNAN CONTEXT UZUNLUĞU: 2708
+CEVAP: 
+
+**Cevap:**
+Philips SoundShooter hoparlör, taşınabilirliği sayesinde mükemmel ses kalitesi sunar. Sesin net, dengeli ve zengin olması, onu hem gündelik hem de daha ciddi dinlemeler için ideal kılıyor. 
+
+**Tavsiye:**
+**Satın Almalı Mısınız?**
+Evet, Philips SoundShooter, taşınabilir, yüksek kaliteli bir hoparlör arayan herkes için mükemmel bir seçimdir. 
+
+**Yıldız Derecelendirmesi:**
+**⭐⭐⭐⭐⭐ (4,5 yıldız)**. 
+
+**Son Not:**
+Philips SoundShooter, mükemmel ses kalitesi, taşınabilirlik ve dayanıklılık sunan üst düzey bir taşınabilir hoparlördür. Taşınabilir, yüksek kaliteli bir hoparlör arayan herkes için mükemmel bir seçimdir.
+
+--- YENİ SORU ---
+SORU (TR): Is there Turkish dubbing on Amazon Prime Video?
+BULUNAN CONTEXT UZUNLUĞU: 2964
+CEVAP: 
+
+Evet Amazon Prime Video'da Türkçe dublaj mevcuttur. Hizmet, içeriğin büyük çoğunluğu için Türkçe altyazı ve dublaj seçenekleri sunuyor.
+
+--- YENİ SORU ---
+SORU (TR): Can I convert a gift card into cash?
+BULUNAN CONTEXT UZUNLUĞU: 3285
+CEVAP: Bu konuda herhangi bir bilgi bulamadım.
+
+--- YENİ SORU ---
+SORU (TR): Is there Turkish dubbing on Amazon Prime Video?
+BULUNAN CONTEXT UZUNLUĞU: 3301
+CEVAP: 
+
+Evet Amazon Prime Video'da Türkçe dublaj mevcuttur. Hizmet, içeriğin büyük çoğunluğunda Türkçe dublaj sağlanmasını sağlar.
+
+--- YENİ SORU ---
+SORU (TR): Sony Cyber-shot DSC-W290 kameranın fotoğraf kalitesi nasıl, alınır mı?
+BULUNAN CONTEXT UZUNLUĞU: 3835
+CEVAP: 
+
+**Cevap:**
+
+Sony Cyber-shot DSC-W290 kamera, 12MP sensörüyle olağanüstü fotoğraf kalitesi sunuyor. Keskin ve sabit görüntüler sağlayan 5x optik yakınlaştırma ve Süper Sabit Çekim görüntü sabitleme özelliğine sahiptir.
+
+**Satın Almalı Mısınız?**
+Evet, Sony Cyber-shot DSC-W290, yüksek kaliteli bir dijital fotoğraf makinesi arayan herkes için mükemmel bir seçimdir. Performans ve özellikler arasında mükemmel bir denge sunarak hem sıradan hem de profesyonel kullanıcılar için en iyi seçimdir.
+
+**Tahmini Yıldız Derecelendirmesi:** ⭐⭐⭐⭐⭐ (4,5 yıldız)
+
+--- YENİ SORU ---
+SORU (TR): Siparişimi nasıl takip edebilirim ve kargom nerede?
+BULUNAN CONTEXT UZUNLUĞU: 3737
+CEVAP: 
+
+Siparişinizi takip etmek ve kargonuzu bulmak için şu adımları izleyin:
+
+1. **Siparişlerim Sayfasını kontrol edin**:
+Bu sayfa, sipariş durumu, teslimat tarihi ve siparişinizle ilgili güncellemeler dahil olmak üzere siparişinizle ilgili en güncel bilgileri sağlar.
+
+2. **Kargo Takip Bilgilerini Bulun**:
+Sipariş durumunuz kargonuzun takip edildiğini gösteriyorsa takip bilgisini Siparişlerim sayfasından bulabilirsiniz.
+
+Bu adımları takip ederek siparişinizi takip edebilir ve kargonuzun yerini tespit edebilirsiniz.
+
+--- YENİ SORU ---
+SORU (TR): Aldığım ürünü nasıl iade edebilirim? İade süresi kaç gün?
+BULUNAN CONTEXT UZUNLUĞU: 3969
+CEVAP: 
+
+Ürünü iade etmek için şu adımları izleyin:
+
+1. **İade Süresini Kontrol Edin**: Çoğu ürün, satın alma tarihinden itibaren 30 günlük iade süresine izin verir. 
+
+2. **İade Sürecini Başlatın**:
+- **Hesabınızda oturum açın**. 
+- **'Siparişlerim' sayfasına gidin**. 
+- **Ürünü içeren siparişi seçin**. 
+
+3. **İade Talimatlarını izleyin**:
+- **'Öğeyi İade Et' düğmesine tıklayın'**. 
+- **İade nedenini seçin** (örn. ürün arızalı, fikrimi değiştirdim, yanlış ürün geldi). 
+
+4. **İade Talebini Gönderin**:
+- **Satıcı veya platform tarafından sağlanan talimatları izleyin**. 
+
+5. **İade Durumunu Takip Edin**:
+- **Hesabınızda oturum açın** ve iade durumunu takip etmek için 'Siparişlerim' sayfasına gidin. 
+
+Bu adımları takip ederek ürünü belirtilen iade süresi içerisinde başarıyla iade edebilirsiniz.
+
+--- YENİ SORU ---
+SORU (TR): İade ettiğim ürünün ücret iadesi (refund) kartıma ne zaman yansır?
+BULUNAN CONTEXT UZUNLUĞU: 3880
+CEVAP: 
+
+İade edilen bir ürüne ilişkin geri ödeme süreci, genellikle iade tarihinden itibaren 30 gün olan belirtilen geri ödeme süresi içinde işleme koyulur ve kartınıza yansıtılır. 
+
+**Önemli Noktalar:**
+- **Geri Ödeme Süresi:** Genellikle iade tarihinden itibaren 30 gündür.
+- **İşlem Süresi:** Satıcının veya platformun politikalarına göre değişiklik gösterir.
+- **İade Tutarı:** Genellikle orijinal satın alma fiyatından geçerli vergi veya harçlar hariç tutulur.
+
+**Son Cevap:**
+Geri ödeme, belirtilen geri ödeme süresi içinde (genellikle iade tarihinden itibaren 30 gün) işleme koyulacak ve kartınıza yansıtılacaktır.
+
+--- YENİ SORU ---
+SORU (TR): Is there Turkish dubbing on Amazon Prime Video?
+BULUNAN CONTEXT UZUNLUĞU: 4454
+CEVAP: 
+
+Evet Amazon Prime Video'da Türkçe dublaj bulunmaktadır. Amazon Prime Video'daki içeriğin çoğunluğu için Türkçe dublaj mevcuttur.
+
+--- YENİ SORU ---
+SORU (TR): Is there Turkish dubbing on Amazon Prime Video?
+BULUNAN CONTEXT UZUNLUĞU: 4460
+CEVAP: 
+
+**Cevap:**
+Evet Amazon Prime Video'da Türkçe dublaj bulunmaktadır. Amazon Prime Video'daki tüm içerik için dublaj mevcuttur.
+
+--- YENİ SORU ---
+SORU (TR): When will I get my refund?
+BULUNAN CONTEXT UZUNLUĞU: 4560
+CEVAP: 
+
+Geri ödememi ne zaman alacağım?
+**Cevap:**
+Geri ödemeniz, geri ödeme isteği tarihinden itibaren **7-14 iş günü** içinde işleme koyulacak ve hesabınıza aktarılacaktır. 
+
+**Not:**
+Kesin zaman çizelgesi, geri ödeme sürecine, ödeme yöntemine ve diğer faktörlere bağlı olarak değişebilir.
+
+--- YENİ SORU ---
+SORU (TR): Mastery ürünü hakkında bilgi ver sevilmiş mi
+BULUNAN CONTEXT UZUNLUĞU: 4188
+CEVAP: 
+
+**Cevap:**
+
+**Materyal** ürünü, müşteriler arasında popüler olan, yüksek kaliteli, iyi değerlendirilmiş bir üründür. Ürün güçlü, iyi tanımlanmış bir karaktere sahip olarak tanımlanmakta ve müşteriler tarafından popüler olan ve iyi karşılanan bir ürün olarak tavsiye edilmektedir.
+
+**Son Tavsiye:**
+
+**Mastery** ürünü şiddetle tavsiye edilir ve piyasadaki en popüler ve en iyi karşılanan ürünlerden biri olarak kabul edilir. Ürün güçlü, iyi tanımlanmış bir karaktere sahip olarak tanımlanmakta ve müşteriler tarafından popüler olan ve iyi karşılanan bir ürün olarak tavsiye edilmektedir.
+
+**Yıldız Derecelendirmesi:**
+
+⭐⭐⭐⭐⭐ (5 yıldız)
+

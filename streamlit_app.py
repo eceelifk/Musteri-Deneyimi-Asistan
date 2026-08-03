@@ -99,9 +99,35 @@ footer {visibility: hidden;}
 [data-testid="stChatMessage"]:nth-child(odd) {
     flex-direction: row-reverse;
 }
-[data-testid="stChatMessage"]:nth-child(odd) div[data-testid="chatAvatarIcon-user"] {
+[data-testid="stChatMessage"]:nth-child(odd) div[data-testid="stChatMessageAvatar"] {
     display: none;
 }
+
+/* Layout for Content Area */
+[data-testid="stChatMessage"] [data-testid="stChatMessageContent"] {
+    flex-grow: 1 !important;
+    display: flex;
+    flex-direction: column;
+}
+
+/* User Message - Align Right */
+[data-testid="stChatMessage"]:nth-child(odd) [data-testid="stChatMessageContent"] {
+    align-items: flex-end;
+}
+[data-testid="stChatMessage"]:nth-child(odd) .stMarkdown {
+    width: fit-content;
+    max-width: 90%;
+}
+
+/* Assistant Message - Align Left */
+[data-testid="stChatMessage"]:nth-child(even) [data-testid="stChatMessageContent"] {
+    align-items: flex-start;
+}
+[data-testid="stChatMessage"]:nth-child(even) .stMarkdown {
+    width: fit-content;
+    max-width: 90%;
+}
+
 
 /* Assistant Bubble - Beautiful White Card with soft shadow */
 [data-testid="stChatMessage"]:nth-child(even) .stMarkdown {
@@ -259,7 +285,7 @@ if len(st.session_state.messages) == 0:
     else:
         examples = [
             "Canon 430EX Flaş ürününü alanlar en çok hangi özelliğini beğenmiş? Özetler misin?",
-            "Bana iyi ve fiyat performans açısından mantıklı bir kamera önerebilir misin?",
+            "Sony Cyber-shot DSC-W290 kameranın fotoğraf kalitesi nasıl, alınır mı?",
             "Philips SoundShooter hoparlörün ses kalitesi iyi mi, alınır mı?",
             "Radio Flyer Little Toy Wagon çocuklar için uygun mu, yorumlar nasıl?"
         ]
@@ -271,10 +297,14 @@ if len(st.session_state.messages) == 0:
                 st.session_state.example_prompt = ex
                 st.rerun()
 
+# Mesajları bir container içine alıyoruz ki nth-child(odd/even) doğru çalışsın
+messages_container = st.container()
+
 # Eski mesajları ekrana basma
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+with messages_container:
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
 
 # Kullanıcıdan yeni soru alma
 prompt = st.chat_input("Yardıma ihtiyacınız olan konuyu yazın...")
@@ -286,63 +316,65 @@ if "example_prompt" in st.session_state:
 
 if prompt:
     st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.markdown(prompt)
+    
+    with messages_container:
+        with st.chat_message("user"):
+            st.markdown(prompt)
 
-    # Asistanın cevabı
-    with st.chat_message("assistant"):
-        # Veritabanı taraması yaparken spinner göster
-        with st.spinner("Lütfen bekleyin, veritabanı taranıyor..."):
-            try:
-                # ask() fonksiyonu sadece veritabanını tarar ve generator'ı hazırlar
-                result = ask(prompt, filter_type=selected_filter_type)
-            except Exception as e:
-                result = None
-                st.error(f"Database Error: {str(e)}")
-                
-        # Spinner bittikten sonra cevabı kelime kelime akıt
-        if result:
-            try:
-                stream = result.get("answer_stream")
-                
-                # İlk veriyi alırken spinner göster (Modelin yüklenme süresi)
-                with st.spinner("⏳ Yükleniyor..."):
-                    try:
-                        first_chunk = next(stream)
-                    except StopIteration:
-                        first_chunk = ""
-                
-                # Spinner kaybolduktan sonra kalan akışı yazdır
-                def generate_stream():
-                    accumulated = ""
-                    if first_chunk:
-                        accumulated += first_chunk
-                        yield first_chunk
+        # Asistanın cevabı
+        with st.chat_message("assistant"):
+            # Veritabanı taraması yaparken spinner göster
+            with st.spinner("Lütfen bekleyin, veritabanı taranıyor..."):
+                try:
+                    # ask() fonksiyonu sadece veritabanını tarar ve generator'ı hazırlar
+                    result = ask(prompt, filter_type=selected_filter_type)
+                except Exception as e:
+                    result = None
+                    st.error(f"Database Error: {str(e)}")
                     
-                    for chunk in stream:
-                        accumulated += chunk
-                        yield chunk
+            # Spinner bittikten sonra cevabı kelime kelime akıt
+            if result:
+                try:
+                    stream = result.get("answer_stream")
                     
-                    pass
-                full_answer = st.write_stream(generate_stream())
-                if full_answer is None:
-                    full_answer = ""
-                elif not isinstance(full_answer, str):
-                    full_answer = str(full_answer)
-                
-                # Hafızaya ekleme işlemini akış bittikten sonra yap
-                from app.memory import add_to_memory
-                add_to_memory(prompt, full_answer)
+                    # İlk veriyi alırken spinner göster (Modelin yüklenme süresi)
+                    with st.spinner("⏳ Yükleniyor..."):
+                        try:
+                            first_chunk = next(stream)
+                        except StopIteration:
+                            first_chunk = ""
+                    
+                    # Spinner kaybolduktan sonra kalan akışı yazdır
+                    def generate_stream():
+                        accumulated = ""
+                        if first_chunk:
+                            accumulated += first_chunk
+                            yield first_chunk
+                        
+                        for chunk in stream:
+                            accumulated += chunk
+                            yield chunk
+                        
+                        pass
+                    full_answer = st.write_stream(generate_stream())
+                    if full_answer is None:
+                        full_answer = ""
+                    elif not isinstance(full_answer, str):
+                        full_answer = str(full_answer)
+                    
+                    # Hafızaya ekleme işlemini akış bittikten sonra yap
+                    from app.memory import add_to_memory
+                    add_to_memory(prompt, full_answer)
 
-                # Yararlanılan kaynakları göster
-                if result.get("sources"):
-                    with st.expander("Yararlanılan Kaynakları Gör"):
-                        for source in result["sources"]:
-                            st.markdown(f"- `{source}`")
-                            
-            except Exception as e:
-                full_answer = "Üzgünüm, şu an bilgiye erişemiyorum. Lütfen daha sonra tekrar deneyin."
-                st.error(f"System Error: {str(e)}")
+                    # Yararlanılan kaynakları göster
+                    if result.get("sources"):
+                        with st.expander("Yararlanılan Kaynakları Gör"):
+                            for source in result["sources"]:
+                                st.markdown(f"- `{source}`")
+                                
+                except Exception as e:
+                    full_answer = "Üzgünüm, şu an bilgiye erişemiyorum. Lütfen daha sonra tekrar deneyin."
+                    st.error(f"System Error: {str(e)}")
 
-            # Asistanın tam cevabını geçmişe ekleme
-            st.session_state.messages.append({"role": "assistant", "content": full_answer})
+                # Asistanın tam cevabını geçmişe ekleme
+                st.session_state.messages.append({"role": "assistant", "content": full_answer})

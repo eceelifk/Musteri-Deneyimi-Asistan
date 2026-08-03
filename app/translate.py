@@ -23,64 +23,43 @@ def translate_en_to_tr(text):
 
 def translate_stream_en_to_tr(generator):
     """
-    Takes an English text generator (stream), buffers text until a sentence is complete,
-    translates the complete sentence to Turkish, and yields it.
+    Takes an English text generator (stream), translates each chunk,
+    and yields it. The incoming generator should ideally yield complete sentences.
     """
     translator = GoogleTranslator(source='en', target='tr')
-    buffer = ""
-    
-    min_buffer_size = 50
-    is_first_chunk = True
     
     for chunk in generator:
-        buffer += chunk
+        if not chunk.strip():
+            yield chunk
+            continue
+            
+        max_retries = 3
+        translated = chunk
+        for attempt in range(max_retries):
+            try:
+                result = translator.translate(chunk)
+                if result is not None:
+                    translated = result
+                break
+            except Exception:
+                if attempt < max_retries - 1:
+                    import time
+                    time.sleep(0.5)
         
-        # Sadece buffer belirli bir büyüklüğe ulaştıysa veya paragraf sonuysa çeviri yap (API yükünü azaltmak için)
-        if len(buffer) > min_buffer_size or '\n\n' in buffer:
-            last_newline = buffer.rfind('\n')
-            last_period = buffer.rfind('. ')
-            last_bang = buffer.rfind('! ')
-            last_question = buffer.rfind('? ')
+        # Orijinal sonlandırmaları koru
+        if chunk.endswith('\n'):
+            if not translated.endswith('\n'):
+                translated += '\n'
+        elif chunk.endswith(' '):
+            if not translated.endswith(' '):
+                translated += ' '
             
-            split_idx = max(last_newline, last_period, last_bang, last_question)
-            
-            if split_idx != -1:
-                cut_point = split_idx + 1 if split_idx == last_newline else split_idx + 2
-                
-                text_to_translate = buffer[:cut_point]
-                buffer = buffer[cut_point:]
-                
-                if text_to_translate.strip():
-                    max_retries = 3
-                    translated = text_to_translate
-                    for attempt in range(max_retries):
-                        try:
-                            result = translator.translate(text_to_translate)
-                            if result is not None:
-                                translated = result
-                            break
-                        except Exception:
-                            if attempt < max_retries - 1:
-                                import time
-                                time.sleep(0.5)
-                            
-                    if text_to_translate.endswith('\n'):
-                        translated += '\n'
-                    else:
-                        translated += ' '
-                    yield translated
-                    
-                    # İlk cümle hızlıca ekrana düştükten sonra buffer'ı çok daha büyüt ki API hiç yorulmasın
-                    if is_first_chunk:
-                        min_buffer_size = 500
-                        is_first_chunk = False
-                else:
-                    yield text_to_translate
-
-    # Buffer'da (hafızada) kalan son metni de çevir
-    if buffer.strip():
-        try:
-            res = translator.translate(buffer)
-            yield res if res is not None else buffer
-        except Exception:
-            yield buffer
+        # UI'da kelime kelime akıcı görünmesi için parçala
+        words = translated.split(' ')
+        for i, word in enumerate(words):
+            if i < len(words) - 1:
+                yield word + ' '
+                import time
+                time.sleep(0.02) # Küçük bir gecikme ile akış hissi ver
+            else:
+                yield word
